@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/10 12:33:48 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/10 18:24:57 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,25 @@ void	init_stacks(int argc, char **params)
 
 	nodes = init_node_and_check(argc, params);
 	nodes_b = NULL;
+	// while (nodes)
+	// {
+	// 	printf("nodes = %i\n", nodes->value);
+	// 	nodes = nodes->next;
+	// }
+	ft_push_swap(&nodes_b, &nodes);
+	ft_push_swap(&nodes_b, &nodes->next);
+	printf("llega\n");
+	while (nodes_b)
+	{
+		printf("nodesb = %i\n", nodes_b->value);
+		//printf("nodesb = %i\n", nodes_b->idx);
+		//printf("nodesb = %i\n", nodes_b->pos_init);
+		nodes_b = nodes_b->next;
+	}
 	while (nodes)
 	{
 		printf("nodes = %i\n", nodes->value);
 		nodes = nodes->next;
-	}
-	ft_push(&nodes_b, 10000);
-	while (nodes_b)
-	{
-		printf("nodesb = %i\n", nodes_b->value);
-		nodes_b = nodes_b->next;
 	}
 }
 
