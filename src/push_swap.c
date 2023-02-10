@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/10 18:24:57 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/10 18:38:31 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,30 +25,27 @@ void	leaks(void)
  */
 void	init_stacks(int argc, char **params)
 {
-	t_node	*nodes;
-	t_node	*nodes_b;
+	t_node	*stack_a;
+	t_node	*stack_b;
 
-	nodes = init_node_and_check(argc, params);
-	nodes_b = NULL;
-	// while (nodes)
-	// {
-	// 	printf("nodes = %i\n", nodes->value);
-	// 	nodes = nodes->next;
-	// }
-	ft_push_swap(&nodes_b, &nodes);
-	ft_push_swap(&nodes_b, &nodes->next);
-	printf("llega\n");
-	while (nodes_b)
+	stack_a = init_node_and_check(argc, params);
+	stack_b = NULL;
+	ft_push_swap(&stack_b, &stack_a);
+	ft_push_swap(&stack_b, &stack_a);
+	ft_push_swap(&stack_b, &stack_a);
+	while (stack_b)
 	{
-		printf("nodesb = %i\n", nodes_b->value);
+		printf("nodesb = %i\n", stack_b->value);
 		//printf("nodesb = %i\n", nodes_b->idx);
 		//printf("nodesb = %i\n", nodes_b->pos_init);
-		nodes_b = nodes_b->next;
+		stack_b = stack_b->next;
+		free(stack_b);
 	}
-	while (nodes)
+	while (stack_a)
 	{
-		printf("nodes = %i\n", nodes->value);
-		nodes = nodes->next;
+		printf("nodes = %i\n", stack_a->value);
+		stack_a = stack_a->next;
+		free(stack_a);
 	}
 }
 
@@ -86,7 +83,7 @@ int	main(int argc, char **argv)
 	// t_node	*nodes;
 	// t_node	*nodes_b;
 
-	atexit(leaks);
+	//atexit(leaks);
 	// nodes = init_node_and_check(argc, argv);
 	// nodes_b = NULL;
 	init_stacks(argc, argv);
