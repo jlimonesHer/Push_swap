@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:07 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/10 18:27:18 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/10 20:06:42 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,7 @@ void		help_argv_validate(char *error);
 void		std_error(char *error);
 void		ft_get_pos(t_node *node);
 void		ft_get_idx(t_node **node);
+
+/* swpappes.c */
+void		ft_move_swap(t_node **first);
 #endif

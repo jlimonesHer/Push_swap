@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/10 18:38:31 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/10 20:11:45 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,26 +27,43 @@ void	init_stacks(int argc, char **params)
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
+	t_node	*tmp_a;
+	t_node	*tmp_b;
 
 	stack_a = init_node_and_check(argc, params);
 	stack_b = NULL;
+	tmp_a = stack_a;
 	ft_push_swap(&stack_b, &stack_a);
-	ft_push_swap(&stack_b, &stack_a);
-	ft_push_swap(&stack_b, &stack_a);
+	//ft_push_swap(&stack_b, &stack_a);
+	//ft_push_swap(&stack_b, &stack_a);
+	tmp_b = stack_b;
 	while (stack_b)
 	{
 		printf("nodesb = %i\n", stack_b->value);
 		//printf("nodesb = %i\n", nodes_b->idx);
 		//printf("nodesb = %i\n", nodes_b->pos_init);
 		stack_b = stack_b->next;
-		free(stack_b);
+		//free(stack_b);
 	}
+	stack_b = tmp_b;
+	ft_move_swap(&stack_a);
+	//stack_a = tmp_a;
+	//ft_push_swap(&stack_a, &stack_b);
 	while (stack_a)
 	{
 		printf("nodes = %i\n", stack_a->value);
 		stack_a = stack_a->next;
-		free(stack_a);
+		//free(stack_a);
 	}
+	while (stack_b)
+	{
+		printf("nodesb = %i\n", stack_b->value);
+		//printf("nodesb = %i\n", nodes_b->idx);
+		//printf("nodesb = %i\n", nodes_b->pos_init);
+		stack_b = stack_b->next;
+		//free(stack_b);
+	}
+	 stack_a = tmp_a;
 }
 
 /**

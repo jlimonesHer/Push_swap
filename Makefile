@@ -6,7 +6,7 @@
 #    By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/09 09:17:57 by jlimones          #+#    #+#              #
-#    Updated: 2023/02/10 10:49:51 by jlimones         ###   ########.fr        #
+#    Updated: 2023/02/10 19:02:25 by jlimones         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,7 @@ SRC = 	src/push_swap.c \
 		src/save_num.c \
 		src/error.c \
 		src/get_data_struck.c \
+		src/swappes.c \
 
 AUTHOR = jlimones
 DATE = 07/02/2023
