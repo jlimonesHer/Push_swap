@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:07 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/10 12:31:24 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/10 18:27:18 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,19 +38,27 @@ typedef struct s_node
 	struct s_node	*next;
 }	t_node;
 
+/* push_swap.c */
+void		init_stacks(int argc, char **params);
 void		*init_node_and_check(int argc, char **params);
+
+/* save_num.c */
+void		ft_push(t_node **node, int value, int idx, int pos_init);
+void		ft_push_swap(t_node **node, t_node **dst);
+int			ft_count_num(char *params);
+t_node		*save_matrix_node_a(int argc, char **params);
+t_node		*save_param_node_a(int argc, char **params);
+
+/* check_params.c */
 int			is_num_or_signed(char param);
 int			check_param_num(int argc, char **params);
 char		**split_for_param(char *params);
-int			ft_count_num(char *params);
-void		help_argv_validate(char *error);
-void		std_error(char *error);
-void		ft_push(t_node **node, int num);
-t_node		*save_matrix_node_a(int argc, char **params);
-t_node		*save_param_node_a(int argc, char **params);
 int			is_repeat_nbr(t_node *node_a);
 void		control_atoi(char *n);
+
+/* get_data_struck.c */
+void		help_argv_validate(char *error);
+void		std_error(char *error);
 void		ft_get_pos(t_node *node);
 void		ft_get_idx(t_node **node);
-void		init_stacks(int argc, char **params);
 #endif
