@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 10:53:57 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/10 18:27:38 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/10 20:25:33 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ft_get_pos(t_node *nodes)
 	tmp = nodes;
 	while (nodes)
 	{
-		nodes->pos_init = i;
+		nodes->pos = i;
 		i++;
 		nodes = nodes->next;
 	}
@@ -54,11 +54,11 @@ void	ft_get_pos(t_node *nodes)
 
 /**
  * @brief Devuelve la lista al orden inicial
- * Se ordena segun pos_init asignada previamente con ft_get_pos();
+ * Se ordena segun pos asignada previamente con ft_get_pos();
  * 
  * @param node pila inicial
  */
-void	back_pos_init(t_node **nodes)
+void	back_pos(t_node **nodes)
 {
 	t_node	*ptr;
 	int		i;
@@ -69,13 +69,13 @@ void	back_pos_init(t_node **nodes)
 	{
 		while (ptr->next != NULL)
 		{
-			if (ptr->pos_init < ptr->next->pos_init)
+			if (ptr->pos < ptr->next->pos)
 				ptr = ptr->next;
 			else
 			{
 				ft_swap(&ptr->value, &ptr->next->value);
 				ft_swap(&ptr->idx, &ptr->next->idx);
-				ft_swap(&ptr->pos_init, &ptr->next->pos_init);
+				ft_swap(&ptr->pos, &ptr->next->pos);
 				i = 0;
 			}
 		}
@@ -125,7 +125,7 @@ void	ft_get_idx(t_node **node)
 			else
 			{
 				ft_swap(&ptr->value, &ptr->next->value);
-				ft_swap(&ptr->pos_init, &ptr->next->pos_init);
+				ft_swap(&ptr->pos, &ptr->next->pos);
 				i = 0;
 			}
 		}
@@ -133,5 +133,5 @@ void	ft_get_idx(t_node **node)
 		i++;
 	}
 	fill_idx(&ptr, count_nodes(ptr));
-	back_pos_init(&ptr);
+	back_pos(&ptr);
 }

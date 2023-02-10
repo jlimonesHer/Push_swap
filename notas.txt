@@ -41,3 +41,5 @@ posición, de forma que el último elemento se convierte en el primero.
 rrr : reverse rotate a y reverse rotate b - desplaza al mismo tiempo todos
 los elementos del node a y del node b una posición hacia abajo, de forma que
 el último elemento se convierte en el primero.
+
+---------Hay que controlar las pos---------

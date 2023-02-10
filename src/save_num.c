@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 18:22:31 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/10 18:31:04 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/10 20:25:33 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * @param node recibe un puntero al puntero de la lista
  * @param num el entero a guardar,
  */
-void	ft_push(t_node **node, int value, int idx, int pos_init)
+void	ft_push(t_node **node, int value, int idx, int pos)
 {
 	t_node	*new_node;
 
@@ -27,7 +27,7 @@ void	ft_push(t_node **node, int value, int idx, int pos_init)
 		std_error("Algo salio mal al reservar memoria");
 	new_node->value = value;
 	new_node->idx = idx;
-	new_node->pos_init = pos_init;
+	new_node->pos = pos;
 	new_node->next = *node;
 	*node = new_node;
 }
@@ -37,7 +37,7 @@ void	ft_push_swap(t_node **node, t_node **dst)
 	t_node	*a;
 
 	a = *dst;
-	ft_push(node, a->value, a->idx, a->pos_init);
+	ft_push(node, a->value, a->idx, a->pos);
 	*dst = a->next;
 	free(a);
 }
