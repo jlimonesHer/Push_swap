@@ -1,19 +1,19 @@
-sa : swap a - intercambia los dos primeros elementos encima del node a. No hace
+$ sa : swap a - intercambia los dos primeros elementos encima del node a. No hace
 nada si hay uno o menos elementos.
 
 
-sb : swap b - intercambia los dos primeros elementos encima del node b. No hace
+$ sb : swap b - intercambia los dos primeros elementos encima del node b. No hace
 nada si hay uno o menos elementos.
 
 
-ss : swap a y swap b a la vez.
+$ ss : swap a y swap b a la vez.
 
 
-pa : push a - toma el primer elemento del node b y lo pone encima del node a.
+$ pa : push a - toma el primer elemento del node b y lo pone encima del node a.
 No hace nada si b está vacío.
 
 
-pb : push b - toma el primer elemento del node a y lo pone encima del node b.
+$ pb : push b - toma el primer elemento del node a y lo pone encima del node b.
 No hace nada si a está vacío.
 
 

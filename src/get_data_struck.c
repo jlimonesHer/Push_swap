@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 10:53:57 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/10 20:25:33 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/11 12:48:58 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * @param list lista de strucks
  * @return int 
  */
-static int	count_nodes(t_node *list)
+int	count_nodes(t_node *list)
 {
 	int	i;
 
