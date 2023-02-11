@@ -6,31 +6,11 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 18:22:31 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/10 20:25:33 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/11 12:48:32 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/**
- * @brief esta funcion creara un nuevo nodo al principio de la lista
- * 
- * @param node recibe un puntero al puntero de la lista
- * @param num el entero a guardar,
- */
-void	ft_push(t_node **node, int value, int idx, int pos)
-{
-	t_node	*new_node;
-
-	new_node = malloc(sizeof(t_node));
-	if (!node)
-		std_error("Algo salio mal al reservar memoria");
-	new_node->value = value;
-	new_node->idx = idx;
-	new_node->pos = pos;
-	new_node->next = *node;
-	*node = new_node;
-}
 
 void	ft_push_swap(t_node **node, t_node **dst)
 {
@@ -102,7 +82,7 @@ t_node	*save_param_node_a(int argc, char **params)
 	while (argc >= 1)
 	{
 		control_atoi(params[argc]);
-		ft_push(&node_a, ft_atoi(params[argc]),0,0);
+		ft_push(&node_a, ft_atoi(params[argc]), 0, 0);
 		argc--;
 	}
 	return (node_a);

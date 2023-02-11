@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:07 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/11 08:27:24 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/11 12:49:20 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,6 @@ void		init_stacks(int argc, char **params);
 void		*init_node_and_check(int argc, char **params);
 
 /* save_num.c */
-void		ft_push(t_node **node, int value, int idx, int pos);
-void		ft_push_swap(t_node **node, t_node **dst);
 int			ft_count_num(char *params);
 t_node		*save_matrix_node_a(int argc, char **params);
 t_node		*save_param_node_a(int argc, char **params);
@@ -57,6 +55,7 @@ int			is_repeat_nbr(t_node *node_a);
 void		control_atoi(char *n);
 
 /* get_data_struck.c */
+int			count_nodes(t_node *list);
 void		help_argv_validate(char *error);
 void		std_error(char *error);
 void		ft_get_pos(t_node *node);
@@ -66,4 +65,12 @@ void		ft_get_idx(t_node **node);
 void		ft_move_swap_a(t_node **stack_a, int mute);
 void		ft_move_swap_b(t_node **stack_b, int mute);
 void		ft_move_swap_ab(t_node **stack_a, t_node **stack_b);
+
+/* push.c */
+void		ft_push(t_node **node, int value, int idx, int pos);
+void		ft_push_a(t_node **dst, t_node **node, char stack);
+
+/* rotate.c */
+void		rotate_a(t_node **stack_a, char stack);
+void		rotate_ab(t_node **stack_a, t_node **stack_b);
 #endif
