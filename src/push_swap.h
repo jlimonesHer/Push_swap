@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:07 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/10 20:32:55 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/11 08:27:24 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,6 @@ void		ft_get_idx(t_node **node);
 
 /* swpappes.c */
 void		ft_move_swap_a(t_node **stack_a, int mute);
-void		ft_move_swap_b(t_node **stack_b,  int mute);
+void		ft_move_swap_b(t_node **stack_b, int mute);
 void		ft_move_swap_ab(t_node **stack_a, t_node **stack_b);
 #endif

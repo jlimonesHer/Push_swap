@@ -6,11 +6,11 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 18:58:14 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/10 20:32:22 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/11 08:29:41 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../src/push_swap.h"
 
 void	ft_move_swap_a(t_node **stack_a, int mute)
 {
