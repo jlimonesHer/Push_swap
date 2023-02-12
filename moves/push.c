@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 08:31:24 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/11 09:08:03 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/11 15:52:32 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ft_push(t_node **node, int value, int idx, int pos)
  * @param dst destino del nodo
  * @param stack pila de destino
  */
-void	ft_push_a(t_node **dst, t_node **node, char stack)
+void	ft_push_a(t_node **dst, t_node **node)
 {
 	t_node	*a;
 
@@ -49,8 +49,22 @@ void	ft_push_a(t_node **dst, t_node **node, char stack)
 	ft_push(dst, a->value, a->idx, a->pos);
 	*node = a->next;
 	free(a);
-	if (stack == 'a')
-		printf("pa\n");
-	if (stack == 'b')
-		printf("pb\n");
+	ft_get_pos((*node));
+	ft_get_pos((*dst));
+	printf("pa\n");
+}
+
+void	ft_push_b(t_node **dst, t_node **node)
+{
+	t_node	*a;
+
+	if ((*node) == NULL)
+		return ;
+	a = *node;
+	ft_push(dst, a->value, a->idx, a->pos);
+	*node = a->next;
+	free(a);
+	ft_get_pos((*node));
+	ft_get_pos((*dst));
+	printf("pb\n");
 }

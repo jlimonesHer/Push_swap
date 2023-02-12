@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:05 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/10 11:06:09 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/12 08:40:42 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	is_repeat_nbr(t_node *node)
 		while (node->next != NULL)
 		{
 			if (tmp->value == node->next->value)
-				return (0);
+				std_error("Hay algun numero repetido");
 			else
 				node = node->next;
 		}
