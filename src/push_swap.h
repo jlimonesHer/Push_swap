@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:07 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/11 12:49:20 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/12 08:36:16 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,16 @@ void		ft_move_swap_ab(t_node **stack_a, t_node **stack_b);
 
 /* push.c */
 void		ft_push(t_node **node, int value, int idx, int pos);
-void		ft_push_a(t_node **dst, t_node **node, char stack);
+void		ft_push_a(t_node **dst, t_node **node);
+void		ft_push_b(t_node **dst, t_node **node);
 
 /* rotate.c */
-void		rotate_a(t_node **stack_a, char stack);
+void		rotate_a(t_node **stack_a, int mute);
+void		rotate_b(t_node **stack_b, int mute);
 void		rotate_ab(t_node **stack_a, t_node **stack_b);
+
+/* reverse_rotate.c */
+void		reverse_rotate_a(t_node **stack_a, int mute);
+void		reverse_rotate_b(t_node **stack_b, int mute);
+void		reverse_rotate_ab(t_node **stack_a, t_node **stack_b);
 #endif

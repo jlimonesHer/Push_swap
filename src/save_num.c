@@ -6,21 +6,11 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 18:22:31 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/11 12:48:32 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/12 09:27:58 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_push_swap(t_node **node, t_node **dst)
-{
-	t_node	*a;
-
-	a = *dst;
-	ft_push(node, a->value, a->idx, a->pos);
-	*dst = a->next;
-	free(a);
-}
 
 /**
  * @brief cuenta el numero de entradas si solo hay un argumento
@@ -59,7 +49,7 @@ t_node	*save_matrix_node_a(int argc, char **params)
 	while (argc >= 0)
 	{
 		control_atoi(params[argc]);
-		ft_push(&node_a, ft_atoi(params[argc]),0,0);
+		ft_push(&node_a, ft_atoi(params[argc]), 0, 0);
 		free(params[argc]);
 		argc--;
 	}
