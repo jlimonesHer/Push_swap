@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/12 09:41:45 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/13 07:26:49 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,9 @@ void	init_stacks(int argc, char **params)
 
 	stack_a = init_node_and_check(argc, params);
 	stack_b = NULL;
-	//tmp_a = stack_a;
-	ft_push_a(&stack_b, &stack_a);
-	//ft_push_a(&stack_b, &stack_a);
-	//ft_push_a(&stack_b, &stack_a);
-	//ft_push_a(&stack_b, &stack_a);
-	//ft_push_a(&stack_b, &stack_a);
-	// ft_push_a(&stack_b, &stack_a);
-	// ft_push_a(&stack_b, &stack_a);
-	// ft_push_a(&stack_b, &stack_a);
-	ft_push_b(&stack_a, &stack_b);
-	// ft_push_b(&stack_a, &stack_b);
-	//ft_push_b(&stack_a, &stack_b);
-	//ft_push_b(&stack_a, &stack_b);
-	//tmp_b = stack_b;
+	int count = count_nodes(stack_a);
+	if (count < 4)
+		sort_3(&stack_a);
 	printf("stack_b----------------------\n");
 	while (stack_b)
 	{
@@ -55,20 +44,6 @@ void	init_stacks(int argc, char **params)
 		stack_b = stack_b->next;
 		//free(stack_b);
 	}
-	printf("\n");
-	//stack_b = tmp_b;
-	ft_move_swap_a(&stack_a, 0);
-	ft_move_swap_b(&stack_b, 0);
-	ft_move_swap_ab(&stack_a, &stack_b);
-	rotate_a(&stack_a, 0);
-	rotate_b(&stack_b, 0);
-	//ft_push_b(&stack_a, &stack_b);
-	rotate_ab(&stack_a, &stack_b);
-	reverse_rotate_a(&stack_a, 0);
-	reverse_rotate_b(&stack_a, 0);
-	reverse_rotate_ab(&stack_a, &stack_b);
-	//stack_a = tmp_a;
-	//printf("stack_a %i\n", stack_a->value);
 	printf("stack_a----------------------\n");
 	while (stack_a)
 	{
@@ -122,7 +97,7 @@ void	*init_node_and_check(int argc, char **params)
 
 int	main(int argc, char **argv)
 {
-	atexit(leaks);
+	//atexit(leaks);
 	init_stacks(argc, argv);
 	return (0);
 }
