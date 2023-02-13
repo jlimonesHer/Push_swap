@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 10:53:57 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/11 15:48:32 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/13 11:30:53 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_get_pos(t_node *nodes)
 	t_node		*tmp;
 	int			i;
 
-	i = 1;
+	i = 0;
 	tmp = nodes;
 	while (nodes)
 	{
