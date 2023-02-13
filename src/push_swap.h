@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:07 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/12 08:36:16 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/13 07:22:59 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,7 @@ void		rotate_ab(t_node **stack_a, t_node **stack_b);
 void		reverse_rotate_a(t_node **stack_a, int mute);
 void		reverse_rotate_b(t_node **stack_b, int mute);
 void		reverse_rotate_ab(t_node **stack_a, t_node **stack_b);
+
+/* sort_3arg.c */
+void		sort_3(t_node **stack_a);
 #endif
