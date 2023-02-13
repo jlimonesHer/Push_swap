@@ -6,28 +6,34 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 09:46:27 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/13 07:22:25 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/13 11:26:11 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../src/push_swap.h"
 
 void	sort_3(t_node **stack_a)
 {
-	if (((*stack_a)->idx == 1) && ((*stack_a)->next->idx == 2))
+	if ((*stack_a)->idx < (*stack_a)->next->idx
+		&& (*stack_a)->next->idx < (*stack_a)->next->next->idx)
 		return ;
-	else if (((*stack_a)->idx == 1) && ((*stack_a)->next->idx == 3))
+	else if ((*stack_a)->idx < (*stack_a)->next->idx
+		&& (*stack_a)->next->idx > (*stack_a)->next->next->idx)
 	{
 		reverse_rotate_a(stack_a, 0);
 		ft_move_swap_a(stack_a, 0);
 	}
-	else if (((*stack_a)->idx == 2) && ((*stack_a)->next->idx == 1))
+	else if ((*stack_a)->idx > (*stack_a)->next->idx
+		&& (*stack_a)->next->idx < (*stack_a)->next->next->idx)
 		ft_move_swap_a(stack_a, 0);
-	else if (((*stack_a)->idx == 2) && ((*stack_a)->next->idx == 3))
+	else if ((*stack_a)->idx > (*stack_a)->next->idx
+		&& (*stack_a)->next->idx > (*stack_a)->next->next->idx)
 		reverse_rotate_a(stack_a, 0);
-	else if (((*stack_a)->idx == 3) && ((*stack_a)->next->idx == 1))
+	else if ((*stack_a)->idx > (*stack_a)->next->idx
+		&& (*stack_a)->next->idx < (*stack_a)->next->next->idx)
 		rotate_a(stack_a, 0);
-	else if (((*stack_a)->idx == 3) && ((*stack_a)->next->idx == 2))
+	else if ((*stack_a)->idx < (*stack_a)->next->idx
+		&& (*stack_a)->next->idx < (*stack_a)->next->next->idx)
 	{
 		rotate_a(stack_a, 0);
 		ft_move_swap_a(stack_a, 0);

@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/13 07:26:49 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/13 11:31:16 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,21 +34,25 @@ void	init_stacks(int argc, char **params)
 	stack_b = NULL;
 	int count = count_nodes(stack_a);
 	if (count < 4)
-		sort_3(&stack_a);
+		//sort_3(&stack_a);
+	if (count > 3)
+	printf("count %i\n", count);
+		sort_100(&stack_a, &stack_b, count);
 	printf("stack_b----------------------\n");
 	while (stack_b)
 	{
-		printf("%i ", stack_b->value);
-		//printf("nodesb = %i\n", nodes_b->idx);
-		//printf("nodesb = %i\n", nodes_b->pos);
+		printf("idx = %i ", stack_b->idx);
+		printf("value = %i ", stack_b->value);
+		printf("pos = %i\n", stack_b->pos);
 		stack_b = stack_b->next;
 		//free(stack_b);
 	}
 	printf("stack_a----------------------\n");
 	while (stack_a)
 	{
-		printf("pos = %i ", stack_a->pos);
-		printf("value = %i\n", stack_a->value);
+		printf("idx = %i ", stack_a->idx);
+		printf("value = %i ", stack_a->value);
+		printf("pos = %i\n", stack_a->pos);
 		stack_a = stack_a->next;
 		free(stack_a);
 	}

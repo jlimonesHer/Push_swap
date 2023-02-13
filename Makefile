@@ -6,7 +6,7 @@
 #    By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/09 09:17:57 by jlimones          #+#    #+#              #
-#    Updated: 2023/02/13 09:39:35 by jlimones         ###   ########.fr        #
+#    Updated: 2023/02/13 09:49:46 by jlimones         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRC = 	src/push_swap.c \
 		moves/rotate.c \
 		moves/reverse_rotate.c \
 		sort/sort_3arg.c \
+		sort/sort_100arg.c \
 
 AUTHOR = jlimones
 DATE = 07/02/2023
