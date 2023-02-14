@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/13 11:31:16 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:20:13 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void	init_stacks(int argc, char **params)
 	{
 		printf("idx = %i ", stack_b->idx);
 		printf("value = %i ", stack_b->value);
-		printf("pos = %i\n", stack_b->pos);
+		printf("pos = %i ", stack_b->pos);
+		printf("target = %i\n", stack_b->target);
 		stack_b = stack_b->next;
 		//free(stack_b);
 	}

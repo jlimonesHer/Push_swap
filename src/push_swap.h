@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:07 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/13 09:45:56 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/13 11:36:55 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void		ft_move_swap_b(t_node **stack_b, int mute);
 void		ft_move_swap_ab(t_node **stack_a, t_node **stack_b);
 
 /* push.c */
-void		ft_push(t_node **node, int value, int idx, int pos);
+void		ft_push(t_node **node, int value, int idx);
 void		ft_push_a(t_node **dst, t_node **node);
 void		ft_push_b(t_node **dst, t_node **node);
 
@@ -83,5 +83,6 @@ void		reverse_rotate_ab(t_node **stack_a, t_node **stack_b);
 
 /* sort */
 void		sort_3(t_node **stack_a);
+void		leave_only3(t_node **stack_a, t_node **stack_b, int count);
 void		sort_100(t_node **stack_a, t_node **stack_b, int count);
 #endif
