@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_100arg.c                                      :+:      :+:    :+:   */
+/*   cal_target.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 09:41:31 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/13 16:16:06 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/14 19:09:38 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,48 +73,57 @@ void	leave_only3(t_node **stack_a, t_node **stack_b, int count)
 	sort_3(stack_a);
 }
 
-void	search_target(t_node **stack_a, t_node **stack_b)
+/**
+ * @brief busca el indice menor para colocar los numero con mayor 
+ * indice de la pila b que en la pila a
+ * 
+ * @param stack_a pila en la que buscar el menor indice
+ * @return int 
+ */
+int	idx_min(t_node **stack_a)
 {
 	t_node	*tmp;
-	t_node	*tmpb;
-	int		i;
+	int		idx_min;
 
-	i = 0;
 	tmp = (*stack_a);
-	tmpb = (*stack_b);
+	idx_min = INT_MAX;
 	while (tmp)
 	{
-		
+		if (tmp->idx < idx_min)
+			idx_min = tmp->pos;
+		tmp = tmp->next;
+	}
+	return (idx_min);
+}
+
+/**
+ * @brief busca el target de los nodos de la pila b
+ * 
+ * @param stack_a pila a
+ * @param stack_b pila b
+ */
+void	search_target(t_node **stack_a, t_node **stack_b)
+{
+	t_node	*a;
+	t_node	*b;
+	int		min;
+
+	min = idx_min(stack_a);
+	a = (*stack_a);
+	b = (*stack_b);
+	while (b)
+	{
+		b->target = INT_MAX;
+		while (a)
+		{
+			if (a->idx > b->idx && a->idx < b->target)
+				b->target = a->pos;
+		a = a->next;
+		}
+		if (b->target == INT_MAX)
+			b->target = min;
+		b = b->next;
+		a = (*stack_a);
 	}
 }
 
-void	get_target_pos(t_node **stack_a, t_node **stack_b)
-{
-	t_node	*tmp;
-	t_node	*tmpb;
-	int		count;
-	int		diff;
-
-	count = 0;
-	tmp = (*stack_a);
-	tmpb = (*stack_b);
-	while (tmpb)
-	{
-		while (tmp)
-		{
-			if (tmp->idx > count)
-				count = tmp->idx;
-			tmp = tmp->next;
-		}
-	printf("pos target = %i\n", tmpb->target);
-}
-
-void	sort_100(t_node **stack_a, t_node **stack_b, int count)
-{
-	leave_only3(stack_a, stack_b, count);
-	ft_get_pos(*stack_a);
-	ft_get_pos(*stack_b);
-	printf("value= %i\n", (*stack_a)->idx);
-	printf("value= %i\n", (*stack_b)->idx);
-	get_target_pos(stack_a, stack_b);
-}
