@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cal_target.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 09:41:31 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/14 19:09:38 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/14 22:14:40 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,4 +126,3 @@ void	search_target(t_node **stack_a, t_node **stack_b)
 		a = (*stack_a);
 	}
 }
-

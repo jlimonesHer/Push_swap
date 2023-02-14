@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/14 19:17:35 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/14 22:07:02 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ void	init_stacks(int argc, char **params)
 	ft_push_a(&b, &a);
 	ft_push_a(&b, &a);
 	ft_push_a(&b, &a);
-	//tmp_b = stack_b;
 	ft_get_pos(a);
 	ft_get_pos(b);
 	search_target(&a, &b);
 	cost_b(&b);
 	printf("stack_b----------------------\n");
+	cost_a(&a, &b);
 	// ft_get_pos(stack_b);
 	while (b)
 	{
@@ -64,7 +64,8 @@ void	init_stacks(int argc, char **params)
 		printf("value = %i   ", b->value);
 		printf("pos = %i   ", b->pos);
 		printf("target = %i   ", b->target);
-		printf("cost_b = %i\n", b->cost_b);
+		printf("cost_b = %i ", b->cost_b);
+		printf("cost_a = %i\n", b->cost_a);
 		free(b);
 		b = b->next;
 	}

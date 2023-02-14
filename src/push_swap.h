@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:07 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/14 18:20:40 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/14 21:59:03 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,6 @@ int			idx_min(t_node **stack_a);
 void		search_target(t_node **stack_a, t_node **stack_b);
 
 /* cost.c */
-int			cost_b(t_node **stack_b);
-int			cost_a(t_node **stack_a);
+void		cost_b(t_node **stack_b);
+void		cost_a(t_node **stack_a, t_node **stack_b);
 #endif
