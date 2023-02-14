@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:07 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/13 11:36:55 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/14 18:20:40 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct s_node
 
 /* push_swap.c */
 void		init_stacks(int argc, char **params);
-void		*init_node_and_check(int argc, char **params);
+t_node		*init_node_and_check(int argc, char **params);
 
 /* save_num.c */
 int			ft_count_num(char *params);
@@ -81,8 +81,16 @@ void		reverse_rotate_a(t_node **stack_a, int mute);
 void		reverse_rotate_b(t_node **stack_b, int mute);
 void		reverse_rotate_ab(t_node **stack_a, t_node **stack_b);
 
-/* sort */
+/* sort_3.c */
 void		sort_3(t_node **stack_a);
+
+/* cal_target.c */
 void		leave_only3(t_node **stack_a, t_node **stack_b, int count);
 void		sort_100(t_node **stack_a, t_node **stack_b, int count);
+int			idx_min(t_node **stack_a);
+void		search_target(t_node **stack_a, t_node **stack_b);
+
+/* cost.c */
+int			cost_b(t_node **stack_b);
+int			cost_a(t_node **stack_a);
 #endif

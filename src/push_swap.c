@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/13 12:20:13 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/14 19:17:35 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,44 +27,64 @@ void	init_stacks(int argc, char **params)
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
-	//t_node	*tmp_a;
-	//t_node	*tmp_b;
+	t_node	*a;
+	t_node	*b;
 
 	stack_a = init_node_and_check(argc, params);
 	stack_b = NULL;
-	int count = count_nodes(stack_a);
+	a = stack_a;
+	b = stack_b;
+	int count = count_nodes(a);
 	if (count < 4)
 		//sort_3(&stack_a);
 	if (count > 3)
-	printf("count %i\n", count);
-		sort_100(&stack_a, &stack_b, count);
+		printf("count %i\n", count);
+	//leave_only3(&stack_a, &stack_b, count);
+	//sort_3(&stack_a);
+	ft_get_pos(a);
+	ft_push_a(&b, &a);
+	ft_push_a(&b, &a);
+	ft_push_a(&b, &a);
+	ft_push_a(&b, &a);
+	ft_push_a(&b, &a);
+	ft_push_a(&b, &a);
+	ft_push_a(&b, &a);
+	ft_push_a(&b, &a);
+	ft_push_a(&b, &a);
+	//tmp_b = stack_b;
+	ft_get_pos(a);
+	ft_get_pos(b);
+	search_target(&a, &b);
+	cost_b(&b);
 	printf("stack_b----------------------\n");
-	while (stack_b)
+	// ft_get_pos(stack_b);
+	while (b)
 	{
-		printf("idx = %i ", stack_b->idx);
-		printf("value = %i ", stack_b->value);
-		printf("pos = %i ", stack_b->pos);
-		printf("target = %i\n", stack_b->target);
-		stack_b = stack_b->next;
-		//free(stack_b);
+		printf("idx = %i   ", b->idx);
+		printf("value = %i   ", b->value);
+		printf("pos = %i   ", b->pos);
+		printf("target = %i   ", b->target);
+		printf("cost_b = %i\n", b->cost_b);
+		free(b);
+		b = b->next;
 	}
 	printf("stack_a----------------------\n");
-	while (stack_a)
+	while (a)
 	{
-		printf("idx = %i ", stack_a->idx);
-		printf("value = %i ", stack_a->value);
-		printf("pos = %i\n", stack_a->pos);
-		stack_a = stack_a->next;
-		free(stack_a);
+		printf("idx = %i ", a->idx);
+		printf("value = %i ", a->value);
+		printf("pos = %i\n", a->pos);
+		free(a);
+		a = a->next;
 	}
 	printf("\n");
 	printf("stack_b\n");
-	while (stack_b)
+	while (b)
 	{
-		printf("value = %i ", stack_b->value);
-		printf("pos = %i\n", stack_b->pos);
-		stack_b = stack_b->next;
-		free(stack_b);
+		printf("value = %i ", b->value);
+		printf("pos = %i\n", b->pos);
+		free(b);
+		b = b->next;
 	}
 }
 
@@ -75,7 +95,7 @@ void	init_stacks(int argc, char **params)
  * @param params argumentos
  * @return void* retorna el puntero al primer nodo de la pila
  */
-void	*init_node_and_check(int argc, char **params)
+t_node	*init_node_and_check(int argc, char **params)
 {
 	t_node	*node_a;
 	char	**matrix;

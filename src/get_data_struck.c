@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_data_struck.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 10:53:57 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/13 11:30:53 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/14 12:25:07 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
