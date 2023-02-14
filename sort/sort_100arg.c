@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 09:41:31 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/13 11:32:22 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/13 16:16:06 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static int	middle(t_node	**stack_a, int count)
  * @param count numero de nodos
  */
 //static void	leave_only_3(t_node **stack_a, t_node **stack_b, int count)
-void	sort_100(t_node **stack_a, t_node **stack_b, int count)
+void	leave_only3(t_node **stack_a, t_node **stack_b, int count)
 {
 	t_node	*tmp;
 	int		total;
@@ -73,7 +73,48 @@ void	sort_100(t_node **stack_a, t_node **stack_b, int count)
 	sort_3(stack_a);
 }
 
-// void	sort_100(t_node **stack_a, t_node **stack_b, int count)
-// {
-	
-// }
+void	search_target(t_node **stack_a, t_node **stack_b)
+{
+	t_node	*tmp;
+	t_node	*tmpb;
+	int		i;
+
+	i = 0;
+	tmp = (*stack_a);
+	tmpb = (*stack_b);
+	while (tmp)
+	{
+		
+	}
+}
+
+void	get_target_pos(t_node **stack_a, t_node **stack_b)
+{
+	t_node	*tmp;
+	t_node	*tmpb;
+	int		count;
+	int		diff;
+
+	count = 0;
+	tmp = (*stack_a);
+	tmpb = (*stack_b);
+	while (tmpb)
+	{
+		while (tmp)
+		{
+			if (tmp->idx > count)
+				count = tmp->idx;
+			tmp = tmp->next;
+		}
+	printf("pos target = %i\n", tmpb->target);
+}
+
+void	sort_100(t_node **stack_a, t_node **stack_b, int count)
+{
+	leave_only3(stack_a, stack_b, count);
+	ft_get_pos(*stack_a);
+	ft_get_pos(*stack_b);
+	printf("value= %i\n", (*stack_a)->idx);
+	printf("value= %i\n", (*stack_b)->idx);
+	get_target_pos(stack_a, stack_b);
+}

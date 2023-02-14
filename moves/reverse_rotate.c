@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:38:30 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/12 08:59:31 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/13 11:34:36 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ void	reverse_rotate_a(t_node **stack_a, int mute)
 	end = (*stack_a)->next;
 	(*stack_a)->next = NULL;
 	(*stack_a) = end;
-	ft_get_pos((*stack_a));
 	if (!mute)
 		ft_printf("rra\n");
 }

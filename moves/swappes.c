@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 18:58:14 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/12 08:54:10 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/13 11:34:57 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	ft_move_swap_a(t_node **stack_a, int mute)
 	(*stack_a)->next = (*stack_a)->next->next;
 	tmp->next = (*stack_a);
 	(*stack_a) = tmp;
-	ft_get_pos((*stack_a));
 	if (!mute)
 		ft_printf("sa\n");
 }

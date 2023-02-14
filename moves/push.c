@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 08:31:24 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/11 15:52:32 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/13 11:35:51 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * @param node recibe un puntero al puntero de la lista
  * @param num el entero a guardar,
  */
-void	ft_push(t_node **node, int value, int idx, int pos)
+void	ft_push(t_node **node, int value, int idx)
 {
 	t_node	*new_node;
 
@@ -27,7 +27,6 @@ void	ft_push(t_node **node, int value, int idx, int pos)
 		std_error("Algo salio mal al reservar memoria");
 	new_node->value = value;
 	new_node->idx = idx;
-	new_node->pos = pos;
 	new_node->next = *node;
 	*node = new_node;
 }
@@ -46,11 +45,9 @@ void	ft_push_a(t_node **dst, t_node **node)
 	if ((*node) == NULL)
 		return ;
 	a = *node;
-	ft_push(dst, a->value, a->idx, a->pos);
+	ft_push(dst, a->value, a->idx);
 	*node = a->next;
 	free(a);
-	ft_get_pos((*node));
-	ft_get_pos((*dst));
 	printf("pa\n");
 }
 
@@ -61,10 +58,8 @@ void	ft_push_b(t_node **dst, t_node **node)
 	if ((*node) == NULL)
 		return ;
 	a = *node;
-	ft_push(dst, a->value, a->idx, a->pos);
+	ft_push(dst, a->value, a->idx);
 	*node = a->next;
 	free(a);
-	ft_get_pos((*node));
-	ft_get_pos((*dst));
 	printf("pb\n");
 }

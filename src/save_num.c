@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 18:22:31 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/12 09:27:58 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/13 11:36:11 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_node	*save_matrix_node_a(int argc, char **params)
 	while (argc >= 0)
 	{
 		control_atoi(params[argc]);
-		ft_push(&node_a, ft_atoi(params[argc]), 0, 0);
+		ft_push(&node_a, ft_atoi(params[argc]), 0);
 		free(params[argc]);
 		argc--;
 	}
@@ -72,7 +72,7 @@ t_node	*save_param_node_a(int argc, char **params)
 	while (argc >= 1)
 	{
 		control_atoi(params[argc]);
-		ft_push(&node_a, ft_atoi(params[argc]), 0, 0);
+		ft_push(&node_a, ft_atoi(params[argc]), 0);
 		argc--;
 	}
 	return (node_a);
