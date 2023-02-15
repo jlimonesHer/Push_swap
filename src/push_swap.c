@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/14 22:07:02 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/15 15:59:36 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,21 +51,31 @@ void	init_stacks(int argc, char **params)
 	ft_push_a(&b, &a);
 	ft_push_a(&b, &a);
 	ft_push_a(&b, &a);
+	ft_push_a(&b, &a);
+	rotate_a(&a, 1);
+	// ft_push_a(&b, &a);
+	// ft_push_a(&b, &a);
+	// ft_push_a(&b, &a);
+	//leave_only3(&a, &b, count_nodes(a));
 	ft_get_pos(a);
 	ft_get_pos(b);
 	search_target(&a, &b);
 	cost_b(&b);
-	printf("stack_b----------------------\n");
 	cost_a(&a, &b);
+	//total_cost(&b);
+	lower_cost(&b);
+	
+	printf("stack_b----------------------\n");
 	// ft_get_pos(stack_b);
 	while (b)
 	{
-		printf("idx = %i   ", b->idx);
-		printf("value = %i   ", b->value);
-		printf("pos = %i   ", b->pos);
-		printf("target = %i   ", b->target);
-		printf("cost_b = %i ", b->cost_b);
-		printf("cost_a = %i\n", b->cost_a);
+		printf("idx = %i       ", b->idx);
+		//printf("value = %i        ", b->value);
+		//printf("pos = %i        ", b->pos);
+		printf("target = %i        ", b->target);
+		printf("cost_b = %i      ", b->cost_b);
+		printf("cost_a = %i      ", b->cost_a);
+		printf("total_cost = %i\n", b->total_cost);
 		free(b);
 		b = b->next;
 	}

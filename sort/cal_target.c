@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cal_target.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 09:41:31 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/14 22:14:40 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/15 12:44:05 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,10 @@ void	leave_only3(t_node **stack_a, t_node **stack_b, int count)
 		else if (tmp->idx == (*stack_a)->idx)
 			tmp = tmp->next;
 	}
-	tmp = (*stack_a);
+	//tmp = (*stack_a);
 	count = count_nodes(*stack_a) + 1;
 	while (--count > 3)
 		ft_push_b(stack_b, stack_a);
-	sort_3(stack_a);
 }
 
 /**
@@ -106,22 +105,25 @@ void	search_target(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*a;
 	t_node	*b;
-	int		min;
+	int		aux;
 
-	min = idx_min(stack_a);
 	a = (*stack_a);
 	b = (*stack_b);
 	while (b)
 	{
+	aux = INT_MAX;
 		b->target = INT_MAX;
 		while (a)
 		{
-			if (a->idx > b->idx && a->idx < b->target)
+			if (a->idx > b->idx && aux > a->idx)
+			{
+				aux = a->idx;
 				b->target = a->pos;
-		a = a->next;
+			}
+			if (b->target == INT_MAX)
+				b->target = 0;
+			a = a->next;
 		}
-		if (b->target == INT_MAX)
-			b->target = min;
 		b = b->next;
 		a = (*stack_a);
 	}
