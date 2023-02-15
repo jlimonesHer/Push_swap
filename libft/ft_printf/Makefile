@@ -6,7 +6,7 @@
 #    By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/05 10:20:34 by jlimones          #+#    #+#              #
-#    Updated: 2022/12/02 14:28:58 by jlimones         ###   ########.fr        #
+#    Updated: 2023/02/15 17:14:34 by jlimones         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = libftprintf.a
 
-HEAD = libftprintf.h
+HEAD = ft_printf.h
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)

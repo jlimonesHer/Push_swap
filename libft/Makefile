@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+         #
+#    By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/22 12:35:12 by jlimones          #+#    #+#              #
-#    Updated: 2023/02/09 09:05:37 by jlimones         ###   ########.fr        #
+#    Updated: 2023/02/15 17:08:37 by jlimones         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +73,9 @@ $(NAME): $(OBJ) $(OBJ_GNL)
 	@cp ft_printf/libftprintf.a $(NAME)
 	@ar crs $(NAME) $(OBJ) $(OBJ_GNL)
 	
-
+%.o: %.c $(HEAD)
+	@gcc $(CFLAGS) -c $< -o $@
+	
 clean:
 	@rm -f $(OBJ) $(OBJ_GNL)
 	@make clean -C ft_printf

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:07 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/14 21:59:03 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/15 15:37:15 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_node
 	int				target;
 	int				cost_a;
 	int				cost_b;
+	int				total_cost;
 	struct s_node	*next;
 }	t_node;
 
@@ -93,4 +94,6 @@ void		search_target(t_node **stack_a, t_node **stack_b);
 /* cost.c */
 void		cost_b(t_node **stack_b);
 void		cost_a(t_node **stack_a, t_node **stack_b);
+void		total_cost(t_node **stack_b);
+t_node		*lower_cost(t_node **stack_b);
 #endif

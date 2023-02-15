@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 16:38:30 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/13 11:34:36 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/15 12:34:39 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

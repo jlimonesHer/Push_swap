@@ -6,7 +6,7 @@
 #    By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/09 09:17:57 by jlimones          #+#    #+#              #
-#    Updated: 2023/02/14 18:15:18 by jlimones         ###   ########.fr        #
+#    Updated: 2023/02/15 17:03:31 by jlimones         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,9 @@ $(NAME): $(SRC) $(OBJ)
 	@make -C libft
 	@gcc -o $(NAME) $(FLAGS) $(SRC) $(LIB) $(LIBFT)
 	@printf "%b" "$(OK_COLOR)" "push_swap compilado\n"
+
+%.o: %.c $(HEAD)
+	@gcc $(CFLAGS) -c $< -o $@
 
 skiperror:
 	@$(CC) -o $(NAME) $(SRC)
