@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 09:41:31 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/15 12:44:05 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/16 16:46:44 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,13 @@ void	leave_only3(t_node **stack_a, t_node **stack_b, int count)
 
 	total = middle(stack_a, count);
 	tmp = (*stack_a);
-	while (tmp && (count > 0))
+	while (tmp && (count > 3))
 	{
 		if ((*stack_a)->idx <= total)
 		{
 			ft_push_b(stack_b, stack_a);
 			tmp = (*stack_a);
+			count--;
 		}
 		else if ((*stack_a)->idx > total)
 		{
@@ -66,7 +67,7 @@ void	leave_only3(t_node **stack_a, t_node **stack_b, int count)
 		else if (tmp->idx == (*stack_a)->idx)
 			tmp = tmp->next;
 	}
-	//tmp = (*stack_a);
+	tmp = (*stack_a);
 	count = count_nodes(*stack_a) + 1;
 	while (--count > 3)
 		ft_push_b(stack_b, stack_a);

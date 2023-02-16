@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 09:20:15 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/15 15:59:07 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/15 18:57:49 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	rotate_a(t_node **stack_a, int mute)
 	first = (*stack_a)->next;
 	while ((*stack_a)->next)
 		(*stack_a) = (*stack_a)->next;
-	printf("stack = %i\n", (*stack_a)->idx);
 	(*stack_a)->next = end;
 	(*stack_a)->next->next = NULL;
 	(*stack_a)->next->pos = count_nodes(first);

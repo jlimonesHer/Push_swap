@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:07 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/15 15:37:15 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/16 17:47:28 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,12 @@ void		search_target(t_node **stack_a, t_node **stack_b);
 void		cost_b(t_node **stack_b);
 void		cost_a(t_node **stack_a, t_node **stack_b);
 void		total_cost(t_node **stack_b);
-t_node		*lower_cost(t_node **stack_b);
+int			lower_cost(t_node **stack_b);
+
+/* order.c */
+void		order(t_node **stack_a, t_node **stack_b);
+
+
+
+void print_stack(t_node *stack);
 #endif

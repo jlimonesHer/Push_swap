@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/15 15:59:36 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/16 16:14:17 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,67 +36,48 @@ void	init_stacks(int argc, char **params)
 	b = stack_b;
 	int count = count_nodes(a);
 	if (count < 4)
-		//sort_3(&stack_a);
-	if (count > 3)
-		printf("count %i\n", count);
-	//leave_only3(&stack_a, &stack_b, count);
-	//sort_3(&stack_a);
-	ft_get_pos(a);
-	ft_push_a(&b, &a);
-	ft_push_a(&b, &a);
-	ft_push_a(&b, &a);
-	ft_push_a(&b, &a);
-	ft_push_a(&b, &a);
-	ft_push_a(&b, &a);
-	ft_push_a(&b, &a);
-	ft_push_a(&b, &a);
-	ft_push_a(&b, &a);
-	ft_push_a(&b, &a);
-	rotate_a(&a, 1);
+		sort_3(&a);
+//	if (count > 3)
+	a = stack_a;
+	leave_only3(&a, &b, count);
 	// ft_push_a(&b, &a);
 	// ft_push_a(&b, &a);
 	// ft_push_a(&b, &a);
-	//leave_only3(&a, &b, count_nodes(a));
-	ft_get_pos(a);
-	ft_get_pos(b);
-	search_target(&a, &b);
-	cost_b(&b);
-	cost_a(&a, &b);
-	//total_cost(&b);
-	lower_cost(&b);
-	
+	// ft_push_a(&b, &a);
+	// ft_push_a(&b, &a);
+	//ft_push_a(&b, &a);
+	// printf("stack_b------------leave-----\n");
+	// print_stack(b);
+	sort_3(&a);
+	// ft_get_pos(a);
+	// ft_get_pos(b);
+	// printf("stack_b-------------sort-----\n");
+	// print_stack(b);
+	// printf("stack_b--------target-----------\n");
+	// search_target(&a, &b);
+	// print_stack(b);
+	// printf("stack_b-----------cost_----------\n");
+	// cost_a(&a, &b);
+	// cost_b(&b);
+	// print_stack(b);
+	// printf("stack_b--------total_cost-----------\n");
+	// total_cost(&b);
+	// print_stack(b);
+	// printf("stack_a----------------------\n");
+	// print_stack(a);
+	// printf("stack_b--------ab_pos-----------\n");
+	order(&a, &b);
+	// print_stack(b);
+
+	// printf("stack_a----------------------\n");
+	// print_stack(a);
+
 	printf("stack_b----------------------\n");
-	// ft_get_pos(stack_b);
-	while (b)
-	{
-		printf("idx = %i       ", b->idx);
-		//printf("value = %i        ", b->value);
-		//printf("pos = %i        ", b->pos);
-		printf("target = %i        ", b->target);
-		printf("cost_b = %i      ", b->cost_b);
-		printf("cost_a = %i      ", b->cost_a);
-		printf("total_cost = %i\n", b->total_cost);
-		free(b);
-		b = b->next;
-	}
-	printf("stack_a----------------------\n");
-	while (a)
-	{
-		printf("idx = %i ", a->idx);
-		printf("value = %i ", a->value);
-		printf("pos = %i\n", a->pos);
-		free(a);
-		a = a->next;
-	}
+	print_stack(b);
 	printf("\n");
-	printf("stack_b\n");
-	while (b)
-	{
-		printf("value = %i ", b->value);
-		printf("pos = %i\n", b->pos);
-		free(b);
-		b = b->next;
-	}
+	printf("stack_a______________________\n");
+	print_stack(a);
+	
 }
 
 /**
@@ -136,4 +117,22 @@ int	main(int argc, char **argv)
 	//atexit(leaks);
 	init_stacks(argc, argv);
 	return (0);
+}
+
+void print_stack(t_node *stack)
+{
+	t_node *b = stack;
+
+		while (b)
+	{
+		printf("idx = %i       ", b->idx);
+		printf("value = %i        ", b->value);
+		printf("pos = %i        ", b->pos);
+		printf("target = %i        ", b->target);
+		printf("cost_b = %i      ", b->cost_b);
+		printf("cost_a = %i      ", b->cost_a);
+		printf("total_cost = %i\n", b->total_cost);
+		//free(b);
+		b = b->next;
+	}
 }
