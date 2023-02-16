@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 08:31:24 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/13 11:35:51 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/16 17:06:28 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ void	ft_push(t_node **node, int value, int idx)
 		std_error("Algo salio mal al reservar memoria");
 	new_node->value = value;
 	new_node->idx = idx;
+	//new_node->target = 0;
+	new_node->cost_b = 0;
+	new_node->cost_a = 0;
+	new_node->total_cost = 0;
 	new_node->next = *node;
 	*node = new_node;
 }

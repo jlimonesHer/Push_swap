@@ -6,7 +6,7 @@
 #    By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/09 09:17:57 by jlimones          #+#    #+#              #
-#    Updated: 2023/02/15 17:03:31 by jlimones         ###   ########.fr        #
+#    Updated: 2023/02/16 12:20:48 by jlimones         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,7 @@ SRC = 	src/push_swap.c \
 		sort/sort_3arg.c \
 		sort/cal_target.c \
 		sort/cost.c \
+		sort/order.c \
 
 AUTHOR = jlimones
 DATE = 07/02/2023
