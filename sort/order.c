@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   order.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 18:46:20 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/16 18:01:57 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/16 20:32:49 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,22 @@
 
 void	a_b_pos(t_node **stack_a, t_node **stack_b, int cost)
 {
+	if ((*stack_b)->cost_b == 0 && (*stack_b)->cost_a == 0)
+		ft_push_b(stack_a, stack_b);
 	while ((*stack_b)->cost_b > 0 && (*stack_b)->cost_a > 0)
 	{
 		reverse_rotate_ab(stack_a, stack_b);
 		(*stack_b)->cost_b--;
 		(*stack_b)->cost_a--;
 	}
-	while ((*stack_b)->cost_b >= 0 || (*stack_b)->cost_a >= 0)
+	if ((*stack_b)->cost_b >= 0 || (*stack_b)->cost_a >= 0)
 	{
-		while ((*stack_b)->cost_b >= 0)
+		if ((*stack_b)->cost_b >= 0)
 		{
 			reverse_rotate_b(stack_b, 0);
 			(*stack_b)->cost_b--;
 		}
-		while ((*stack_b)->cost_a >= 0)
+		else if ((*stack_b)->cost_a >= 0)
 		{
 			reverse_rotate_a(stack_a, 0);
 			(*stack_b)->cost_a--;
@@ -45,14 +47,14 @@ void	a_b_neg(t_node **stack_a, t_node **stack_b, int cost)
 		(*stack_b)->cost_b++;
 		(*stack_b)->cost_a++;
 	}
-	while ((*stack_b)->cost_b < 0 || (*stack_b)->cost_a < 0)
+	if ((*stack_b)->cost_b < 0 || (*stack_b)->cost_a < 0)
 	{
-		while ((*stack_b)->cost_b < 0)
+		if ((*stack_b)->cost_b < 0)
 		{
 			rotate_b(stack_b, 0);
 			(*stack_b)->cost_b++;
 		}
-		while ((*stack_b)->cost_a < 0)
+		else if ((*stack_b)->cost_a < 0)
 		{
 			rotate_a(stack_a, 0);
 			(*stack_b)->cost_a++;
@@ -62,17 +64,16 @@ void	a_b_neg(t_node **stack_a, t_node **stack_b, int cost)
 		ft_push_b(stack_a, stack_b);
 }
 
-
 void	a_neg_b_pos(t_node **stack_a, t_node **stack_b, int cost)
 {
-	while ((*stack_b)->cost_b >= 0 || (*stack_b)->cost_a < 0)
+	if ((*stack_b)->cost_b >= 0 || (*stack_b)->cost_a < 0)
 	{
-		while ((*stack_b)->cost_b >= 0)
+		if ((*stack_b)->cost_b >= 0)
 		{
 			reverse_rotate_b(stack_b, 0);
 			(*stack_b)->cost_b--;
 		}
-		while ((*stack_b)->cost_a < 0)
+		else if ((*stack_b)->cost_a < 0)
 		{
 			rotate_a(stack_a, 0);
 			(*stack_b)->cost_a++;
@@ -84,14 +85,14 @@ void	a_neg_b_pos(t_node **stack_a, t_node **stack_b, int cost)
 
 void	a_pos_b_neg(t_node **stack_a, t_node **stack_b, int cost)
 {
-	while ((*stack_b)->cost_b < 0 || (*stack_b)->cost_a >= 0)
+	if ((*stack_b)->cost_b < 0 || (*stack_b)->cost_a >= 0)
 	{
-		while ((*stack_b)->cost_b < 0)
+		if ((*stack_b)->cost_b < 0)
 		{
-			rotate_b(stack_b, 0);
-			(*stack_b)->cost_b++;
+			rotate_a(stack_a, 0);
+			(*stack_b)->cost_a++;
 		}
-		while ((*stack_b)->cost_a >= 0)
+		else if ((*stack_b)->cost_a >= 0)
 		{
 			reverse_rotate_a(stack_a, 0);
 			(*stack_b)->cost_a--;
@@ -111,16 +112,17 @@ void order(t_node **stack_a, t_node **stack_b)
 		ft_get_pos(a);
 		ft_get_pos(b);
 		search_target(&a, &b);
-		cost_a(&a, &b);
 		cost_b(&b);
+		cost_a(&a, &b);
 		total_cost(&b);
+		lower_cost(&a);
 		printf("-----aaaaaaaaa-----\n");
 		print_stack(a);
 		printf("-----bbbbbbbbb----\n");
 		print_stack(b);
-		if ((*stack_b)->cost_b == 0 && (*stack_b)->cost_a == 0)
-			ft_push_b(stack_a, stack_b);
-		else if ((*stack_b)->cost_b > 0 && (*stack_b)->cost_a > 0)
+		// if ((*stack_b)->cost_b == 0 && (*stack_b)->cost_a == 0)
+		// 	ft_push_b(stack_a, stack_b);
+		if ((*stack_b)->cost_b >= 0 && (*stack_b)->cost_a >= 0)
 			a_b_pos(&a, &b, cost);
 		else if ((*stack_b)->cost_b < 0 && (*stack_b)->cost_a < 0)
 			a_b_neg(&a, &b, cost);
