@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cost.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:11:28 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/16 17:58:26 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/16 20:25:39 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	cost_a(t_node **stack_a, t_node **stack_b)
 				if (a->pos <= len)
 					b->cost_a = a->pos;
 				else if (a->pos > len)
-					b->cost_a = (len * 2 - a->pos) * -1;
+					b->cost_a = (len * 2 - a->pos - 1) * -1;
 			}
 			a = a->next;
 		}
@@ -125,5 +125,6 @@ int	lower_cost(t_node **stack_b)
 		}
 		b = b->next;
 	}
+
 	return (cost);
 }

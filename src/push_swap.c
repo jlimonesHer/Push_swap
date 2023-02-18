@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/16 16:14:17 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/16 19:08:28 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,11 @@ void	init_stacks(int argc, char **params)
 	// printf("stack_a----------------------\n");
 	// print_stack(a);
 
-	printf("stack_b----------------------\n");
-	print_stack(b);
-	printf("\n");
-	printf("stack_a______________________\n");
-	print_stack(a);
+	// printf("stack_b----------------------\n");
+	// print_stack(b);
+	// printf("\n");
+	// printf("stack_a______________________\n");
+	// print_stack(a);
 	
 }
 
