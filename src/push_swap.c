@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/20 11:49:20 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/20 17:24:16 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,14 @@ void	init_stacks(int argc, char **params)
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
-	t_node	**a;
-	t_node	*b;
 
 	stack_a = init_node_and_check(argc, params);
 	stack_b = NULL;
-	a = &stack_a;
-	b = stack_b;
-	int count = count_nodes(*a);
+	int count = count_nodes(stack_a);
 	if (count < 4)
-		sort_3(a);
+		sort_3(&stack_a);
 //	if (count > 3)
-	a = &stack_a;
-	leave_only3(a, &b, count);
+	leave_only3(&stack_a, &stack_b, count);
 	// ft_push_a(&b, &a);
 	// ft_push_a(&b, &a);
 	// ft_push_a(&b, &a);
@@ -48,7 +43,7 @@ void	init_stacks(int argc, char **params)
 	//ft_push_a(&b, &a);
 	// printf("stack_b------------leave-----\n");
 	// print_stack(b);
-	sort_3(a);
+	sort_3(&stack_a);
 	// ft_get_pos(a);
 	// ft_get_pos(b);
 	// printf("stack_b-------------sort-----\n");
@@ -66,16 +61,14 @@ void	init_stacks(int argc, char **params)
 	// printf("stack_a----------------------\n");
 	// print_stack(a);
 	// printf("stack_b--------ab_pos-----------\n");
-	order(a, &b);
-
-	printf("stack_a----------------------\n");
-	print_stack(stack_a);
-
+	stack_a = order(&stack_a, &stack_b);
+	//printf("stack_a----------------------\n");
+	//print_stack(stack_a);
 	// printf("stack_b----------------------\n");
 	// print_stack(stack_b);
 	//printf("\n");
-	// printf("stack_a______________________\n");
-	// print_stack(a);
+	printf("stack_a______________________\n");
+	print_stack(stack_a);
 	
 }
 
