@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 18:46:20 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/20 11:38:57 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/20 17:10:56 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -198,7 +198,7 @@ void	node_target(t_node *a, t_node *b, int lower)
 // 	}
 // }
 
-void order(t_node **stack_a, t_node **stack_b)
+t_node *order(t_node **stack_a, t_node **stack_b)
 {
 	t_node	*b = *stack_b;
 	t_node *a = *stack_a;
@@ -207,12 +207,12 @@ void order(t_node **stack_a, t_node **stack_b)
 	while (b)
 	{
 		lower = lower_cost(&b);
+		// printf("-----bbbbbbbbb----\n");
+		// print_stack(b);
+		// printf("-----aaaaaaaaa-----\n");
+		// print_stack(a);
+		// printf("idx = %i b = %i, a = %i\n", b->idx, b->cost_b, b->cost_a);
 		recalculate(&a, &b);
-		printf("-----bbbbbbbbb----\n");
-		print_stack(b);
-		printf("-----aaaaaaaaa-----\n");
-		print_stack(a);
-		printf("idx = %i b = %i, a = %i\n", b->idx, b->cost_b, b->cost_a);
 		if (b->cost_b >= 0 && b->cost_a >= 0)
 			a_b_pos(&a, &b);
 		else if (b->cost_b < 0 && b->cost_a < 0)
@@ -225,13 +225,14 @@ void order(t_node **stack_a, t_node **stack_b)
 		// print_stack(b);
 		// printf("-----push---a---\n");
 		// print_stack(a);
-		 printf("--------------------------------------------\n");
+		// printf("--------------------------------------------\n");
 	}
 	ft_get_pos((a));
 	end_move(&a);
-	printf("-----a-----------\n");
-	print_stack(a);
-	printf("-----b-----------\n");
-	print_stack(b);
+	// printf("-----a-----------\n");
+	// print_stack(a);
+	// printf("-----b-----------\n");
+	// print_stack(b);
+	return (a);
 }
 
