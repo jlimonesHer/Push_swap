@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:07 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/16 17:47:28 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/19 10:06:58 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void		cost_b(t_node **stack_b);
 void		cost_a(t_node **stack_a, t_node **stack_b);
 void		total_cost(t_node **stack_b);
 int			lower_cost(t_node **stack_b);
+void		recalculate(t_node **a, t_node **b);
 
 /* order.c */
 void		order(t_node **stack_a, t_node **stack_b);

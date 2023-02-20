@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:11:28 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/16 20:25:39 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/20 09:54:03 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,18 +51,10 @@ void	cost_a(t_node **stack_a, t_node **stack_b)
 	len = count_nodes(a) / 2;
 	while (b)
 	{
-		a = *stack_a;
-		while (a)
-		{
-			if (a->pos == b->target)
-			{
-				if (a->pos <= len)
-					b->cost_a = a->pos;
-				else if (a->pos > len)
-					b->cost_a = (len * 2 - a->pos - 1) * -1;
-			}
-			a = a->next;
-		}
+		if (b->target > len)
+			b->cost_a = b->target - (len * 2) - 1;
+		else if (b->target <= len)
+			b->cost_a = b->target;
 		b = b->next;
 	}
 }
@@ -111,20 +103,43 @@ void	total_cost(t_node **stack_b)
 int	lower_cost(t_node **stack_b)
 {
 	t_node	*b;
-	int		cost;
+	int		i;
+	int		len;
 
 	b = *stack_b;
-	cost = INT_MAX;
-	total_cost(stack_b);
-	while (b)
-	{
-		if (b->total_cost < cost)
-		{
-			cost = b->total_cost;
-			printf("cost = %i\n", b->total_cost);
-		}
-		b = b->next;
-	}
+	i = -1;
 
-	return (cost);
+	len = count_nodes(b);
+	total_cost(&b);
+	while (b && ++i != b->total_cost && len >= 0)
+	{
+		if (!b->next)
+			return (0);
+			b = b->next;
+		if (b->total_cost == i)
+			return (b->idx);
+		else if (!b)
+		{
+			b = *stack_b;
+			i++;
+		}
+	}
+	return (b->idx);
+}
+
+void	recalculate(t_node **stack_a, t_node **stack_b)
+{
+	t_node	*a;
+	t_node	*b;
+
+	b = (*stack_b);
+	a = (*stack_a);
+	ft_get_pos(a);
+	ft_get_pos(b);
+	search_target(&a, &b);
+	cost_b(&b);
+	cost_a(&a, &b);
+	total_cost(&b);
+	ft_get_pos(a);
+	ft_get_pos(b);
 }
