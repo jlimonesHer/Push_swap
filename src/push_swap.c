@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/20 17:24:16 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/21 12:13:08 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void	init_stacks(int argc, char **params)
 	int count = count_nodes(stack_a);
 	if (count < 4)
 		sort_3(&stack_a);
-//	if (count > 3)
-	leave_only3(&stack_a, &stack_b, count);
+	if (count > 3)
+{	leave_only3(&stack_a, &stack_b, count);
 	// ft_push_a(&b, &a);
 	// ft_push_a(&b, &a);
 	// ft_push_a(&b, &a);
@@ -67,9 +67,9 @@ void	init_stacks(int argc, char **params)
 	// printf("stack_b----------------------\n");
 	// print_stack(stack_b);
 	//printf("\n");
-	printf("stack_a______________________\n");
-	print_stack(stack_a);
-	
+// 	printf("stack_a______________________\n");
+ 	print_stack(stack_a);
+ }
 }
 
 /**
@@ -104,22 +104,40 @@ t_node	*init_node_and_check(int argc, char **params)
 	return (node_a);
 }
 
-int	main(int argc, char **argv)
-{
-	//atexit(leaks);
-	init_stacks(argc, argv);
-	return (0);
-}
-
-void free_node(t_node *stack)
+void	free_node(t_node *stack)
 {
 	while (stack)
 	{
-		printf("free idx = %i\n", stack->idx);
-		stack = stack->next;
 		free(stack);
+		stack = stack->next;
 	}
 }
+
+int	main(int argc, char **argv)
+{
+	//atexit(leaks);
+	//init_stacks(argc, argv);
+	t_node	*stack_a = NULL;
+	t_node	*stack_b;
+
+	stack_a = init_node_and_check(argc, argv);
+	stack_b = NULL;
+	int count = count_nodes(stack_a);
+	 	//print_stack(stack_a);
+	if (count < 4)
+		sort_3(&stack_a);
+	if (count > 3)
+	{	
+		leave_only3(&stack_a, &stack_b, count);
+		sort_3(&stack_a);
+		stack_a = order(&stack_a, &stack_b);
+ 	}
+	free_node(stack_a);
+	free_node(stack_b);
+	return (0);
+}
+
+
 
 void print_stack(t_node *stack)
 {

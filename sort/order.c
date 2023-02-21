@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 18:46:20 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/20 17:10:56 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/21 11:44:11 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ void	end_move(t_node **stack_a)
 
 	a = *stack_a;
 	len = count_nodes(a) / 2;
+	//printf("entra\n");
 	//printf("len = %i\n", len);
 	while (a && a->idx != 1)
 		a = a->next;
