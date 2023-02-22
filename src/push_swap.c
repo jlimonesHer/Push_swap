@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/21 18:19:31 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/22 16:46:38 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,54 +23,54 @@ void	leaks(void)
  * @param argc 
  * @param params 
  */
-void	init_stacks(int argc, char **params)
-{
-	t_node	*stack_a;
-	t_node	*stack_b;
+// void	init_stacks(int argc, char **params)
+// {
+// 	t_node	*stack_a;
+// 	t_node	*stack_b;
 
-	stack_a = init_node_and_check(argc, params);
-	stack_b = NULL;
-	int count = count_nodes(stack_a);
-	if (count < 4)
-		sort_3(&stack_a);
-	if (count > 3)
-{	leave_only3(&stack_a, &stack_b, count);
-	// ft_push_a(&b, &a);
-	// ft_push_a(&b, &a);
-	// ft_push_a(&b, &a);
-	// ft_push_a(&b, &a);
-	// ft_push_a(&b, &a);
-	//ft_push_a(&b, &a);
-	// printf("stack_b------------leave-----\n");
-	// print_stack(b);
-	sort_3(&stack_a);
-	// ft_get_pos(a);
-	// ft_get_pos(b);
-	// printf("stack_b-------------sort-----\n");
-	// print_stack(b);
-	// printf("stack_b--------target-----------\n");
-	// search_target(&a, &b);
-	// print_stack(b);
-	// printf("stack_b-----------cost_----------\n");
-	// cost_a(&a, &b);
-	// cost_b(&b);
-	// print_stack(b);
-	// printf("stack_b--------total_cost-----------\n");
-	// total_cost(&b);
-	// print_stack(b);
-	// printf("stack_a----------------------\n");
-	// print_stack(a);
-	// printf("stack_b--------ab_pos-----------\n");
-	stack_a = order(&stack_a, &stack_b);
-	//printf("stack_a----------------------\n");
-	//print_stack(stack_a);
-	// printf("stack_b----------------------\n");
-	// print_stack(stack_b);
-	//printf("\n");
-// 	printf("stack_a______________________\n");
- 	//print_stack(stack_a);
- }
-}
+// 	stack_a = init_node_and_check(argc, params);
+// 	stack_b = NULL;
+// 	int count = count_nodes(stack_a);
+// 	if (count < 4)
+// 		sort_3(&stack_a);
+// 	if (count > 3)
+// {	leave_only3(&stack_a, &stack_b, count);
+// 	// ft_push_a(&b, &a);
+// 	// ft_push_a(&b, &a);
+// 	// ft_push_a(&b, &a);
+// 	// ft_push_a(&b, &a);
+// 	// ft_push_a(&b, &a);
+// 	//ft_push_a(&b, &a);
+// 	// printf("stack_b------------leave-----\n");
+// 	// print_stack(b);
+// 	sort_3(&stack_a);
+// 	// ft_get_pos(a);
+// 	// ft_get_pos(b);
+// 	// printf("stack_b-------------sort-----\n");
+// 	// print_stack(b);
+// 	// printf("stack_b--------target-----------\n");
+// 	// search_target(&a, &b);
+// 	// print_stack(b);
+// 	// printf("stack_b-----------cost_----------\n");
+// 	// cost_a(&a, &b);
+// 	// cost_b(&b);
+// 	// print_stack(b);
+// 	// printf("stack_b--------total_cost-----------\n");
+// 	// total_cost(&b);
+// 	// print_stack(b);
+// 	// printf("stack_a----------------------\n");
+// 	// print_stack(a);
+// 	// printf("stack_b--------ab_pos-----------\n");
+// 	stack_a = order(&stack_a, stack_b);
+// 	//printf("stack_a----------------------\n");
+// 	//print_stack(stack_a);
+// 	// printf("stack_b----------------------\n");
+// 	// print_stack(stack_b);
+// 	//printf("\n");
+// // 	printf("stack_a______________________\n");
+//  	//print_stack(stack_a);
+//  }
+// }
 
 /**
  * @brief Inicializa las dos pilas:
@@ -130,7 +130,7 @@ int	main(int argc, char **argv)
 	{	
 		leave_only3(&stack_a, &stack_b, count);
 		sort_3(&stack_a);
-		stack_a = order(&stack_a, &stack_b);
+		stack_a = order(&stack_a, stack_b);
  	}
 	free_node(stack_a);
 	free_node(stack_b);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cal_target.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 09:41:31 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/21 19:15:36 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/22 13:23:22 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,4 +129,21 @@ void	search_target(t_node **stack_a, t_node **stack_b)
 		b = b->next;
 		a = (*stack_a);
 	}
+}
+
+void	recalculate(t_node **stack_a, t_node **stack_b)
+{
+	t_node	*a;
+	t_node	*b;
+
+	b = (*stack_b);
+	a = (*stack_a);
+	ft_get_pos(a);
+	ft_get_pos(b);
+	search_target(&a, &b);
+	cost_b(&b);
+	cost_a(&a, &b);
+	total_cost(&b);
+	ft_get_pos(a);
+	ft_get_pos(b);
 }

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+         #
+#    By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/09 09:17:57 by jlimones          #+#    #+#              #
-#    Updated: 2023/02/20 10:51:58 by jlimones         ###   ########.fr        #
+#    Updated: 2023/02/22 19:53:09 by jlimones         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ SRC = 	src/push_swap.c \
 		sort/cal_target.c \
 		sort/cost.c \
 		sort/order.c \
+		sort/algorithm.c \
 
 AUTHOR = jlimones
 DATE = 07/02/2023
