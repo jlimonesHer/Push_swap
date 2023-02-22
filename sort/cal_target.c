@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 09:41:31 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/21 11:40:10 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/21 19:15:36 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,7 @@ void	leave_only3(t_node **stack_a, t_node **stack_b, int count)
 		else
 		{
 			rotate_a(stack_a, 0);
+			count--;
 		}
 	}
 	tmp = (*stack_a);
@@ -87,10 +88,13 @@ int	idx_min(t_node **stack_a)
 	while (tmp)
 	{
 		if (tmp->idx < idx_min)
-			idx_min = tmp->pos;
+			idx_min = tmp->idx;
 		tmp = tmp->next;
 	}
-	return (idx_min);
+	tmp = (*stack_a);
+	while (tmp->idx != idx_min)
+		tmp = tmp->next;
+	return (tmp->pos);
 }
 
 /**
@@ -119,7 +123,7 @@ void	search_target(t_node **stack_a, t_node **stack_b)
 				b->target = a->pos;
 			}
 			if (b->target == INT_MAX)
-				b->target = 0;
+				b->target = idx_min(&a);
 			a = a->next;
 		}
 		b = b->next;

@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/21 12:13:08 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:19:31 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	init_stacks(int argc, char **params)
 	// print_stack(stack_b);
 	//printf("\n");
 // 	printf("stack_a______________________\n");
- 	print_stack(stack_a);
+ 	//print_stack(stack_a);
  }
 }
 

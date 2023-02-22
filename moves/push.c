@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 08:31:24 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/21 12:11:09 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/21 13:25:51 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	ft_push_b(t_node **dst, t_node **node)
 	a = *node;
 	ft_push(dst, a->value, a->idx);
 	*node = a->next;
-	printf("pa\n");
+	ft_printf("pa\n");
 }
 
 void	ft_push_a(t_node **dst, t_node **node)
@@ -64,5 +64,5 @@ void	ft_push_a(t_node **dst, t_node **node)
 	ft_push(dst, a->value, a->idx);
 	*node = a->next;
 	free(a);
-	printf("pb\n");
+	ft_printf("pb\n");
 }

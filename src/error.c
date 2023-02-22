@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 10:48:14 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/10 10:59:39 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/21 13:26:42 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ void	print(t_node *s)
 {
 	while (s)
 	{
-		printf("%i ", s->value);
+		ft_printf("%i ", s->value);
 		s = s->next;
 	}
-	printf("\n");
+	ft_printf("\n");
 }

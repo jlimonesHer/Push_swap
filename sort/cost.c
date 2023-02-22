@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:11:28 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/20 09:54:03 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/21 19:16:26 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	cost_b(t_node **stack_b)
 
 	b = *stack_b;
 	len = count_nodes(b) / 2;
+	//printf("entra en cost b -> %i\n", (*stack_b)->idx);
 	while (b)
 	{
 		if (b->pos <= len)
@@ -32,6 +33,7 @@ void	cost_b(t_node **stack_b)
 			b->cost_b = (len * 2 - b->pos + 1) * -1;
 		b = b->next;
 	}
+	//printf("sale en cost b -> %i, costb = %i\n", (*stack_b)->idx, (*stack_b)->cost_b);
 }
 
 /**
@@ -108,7 +110,6 @@ int	lower_cost(t_node **stack_b)
 
 	b = *stack_b;
 	i = -1;
-
 	len = count_nodes(b);
 	total_cost(&b);
 	while (b && ++i != b->total_cost && len >= 0)
