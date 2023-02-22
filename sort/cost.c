@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cost.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:11:28 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/21 19:16:26 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/22 12:25:03 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,12 +50,14 @@ void	cost_a(t_node **stack_a, t_node **stack_b)
 
 	b = *stack_b;
 	a = *stack_a;
-	len = count_nodes(a) / 2;
+	len = count_nodes(a);
 	while (b)
 	{
-		if (b->target > len)
-			b->cost_a = b->target - (len * 2) - 1;
-		else if (b->target <= len)
+		if (b->target > len / 2)
+			if (len % 2)
+				len--;
+			b->cost_a = b->target - (len) - 1;
+		if (b->target <= len)
 			b->cost_a = b->target;
 		b = b->next;
 	}

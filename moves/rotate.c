@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 09:20:15 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/21 11:34:54 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/22 11:54:37 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	rotate_a(t_node **stack_a, int mute)
  */
 void	rotate_b(t_node **stack_b, int mute)
 {
-	rotate_a(stack_b, 0);
+	rotate_a(stack_b, 1);
 	if (!mute)
 		ft_printf("rb\n");
 }
