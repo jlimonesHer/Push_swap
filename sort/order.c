@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 18:46:20 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/22 20:53:23 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/23 17:34:06 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  */
 void	a_b_pos(t_node **stack_a, t_node **stack_b, t_node *lower)
 {
-	printf("entra en a_b_pos\n");
+	//printf("entra en a_b_pos\n");
 	while (lower->cost_b > 0 && lower->cost_a > 0)
 	{
 		rotate_ab(stack_a, stack_b);
@@ -51,27 +51,27 @@ void	a_b_pos(t_node **stack_a, t_node **stack_b, t_node *lower)
  */
 void	a_b_neg(t_node **stack_a, t_node **stack_b, t_node *lower)
 {
-	printf("entra en a_b_neg\n");
+	//printf("entra en a_b_neg\n");
 	while (lower->cost_b < 0 && lower->cost_a < 0)
 	{
-		rotate_ab(stack_a, stack_b);
+		reverse_rotate_ab(stack_a, stack_b);
 		lower->cost_b++;
 		lower->cost_a++;
 	}
 	if (lower->cost_b < 0 || lower->cost_a < 0)
 	{
-		if (lower->cost_b < 0)
+		while (lower->cost_b < 0)
 		{
-			rotate_b(stack_b, 0);
+			reverse_rotate_b(stack_b, 0);
 			lower->cost_b++;
 		}
-		else if (lower->cost_a < 0)
+		while (lower->cost_a < 0)
 		{
-			rotate_a(stack_a, 0);
+			reverse_rotate_a(stack_a, 0);
 			lower->cost_a++;
 		}
 	}
-	ft_push_b(stack_b, stack_b);
+	ft_push_b(stack_a, stack_b);
 }
 
 /**
@@ -82,12 +82,12 @@ void	a_b_neg(t_node **stack_a, t_node **stack_b, t_node *lower)
  */
 void	a_neg_b_pos(t_node **stack_a, t_node **stack_b, t_node *lower)
 {
-	printf("entra en a_neg_b_pos\n");
+	//printf("entra en a_neg_b_pos\n");
 	if (lower->cost_b >= 0 || lower->cost_a < 0)
 	{
 		while (lower->cost_b > 0)
 		{
-			rotate_a(stack_b, 0);
+			rotate_b(stack_b, 0);
 			lower->cost_b--;
 		}
 		while (lower->cost_a < 0)
@@ -107,7 +107,7 @@ void	a_neg_b_pos(t_node **stack_a, t_node **stack_b, t_node *lower)
  */
 void	a_pos_b_neg(t_node **stack_a, t_node **stack_b, t_node *lower)
 {
-	printf("entra en a_pos_b_neg\n");
+	//printf("entra en a_pos_b_neg\n");
 	if (lower->cost_b < 0 || lower->cost_a >= 0)
 	{
 		while (lower->cost_b < 0)
@@ -133,11 +133,14 @@ void	end_move(t_node **stack_a)
 {
 	int		len;
 	t_node	*a;
+	int		i;
 
+	i = 0;
 	a = *stack_a;
 	len = count_nodes(a);
 	while (a && a->idx != 1)
 		a = a->next;
+	i = a->pos;
 	if (a->pos > len / 2)
 	{
 		while (a->pos < len)
@@ -148,10 +151,10 @@ void	end_move(t_node **stack_a)
 	}
 	else if (a->pos < len / 2 + 1)
 	{
-		while (a->pos < len / 2)
+		while (i > 0)
 		{
 			rotate_a(stack_a, 0);
-			len--;
+			i--;
 		}
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:07 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/22 16:46:54 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/23 17:45:10 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,9 +105,10 @@ void		a_b_neg(t_node **stack_a, t_node **stack_b, t_node *lower);
 void		a_b_pos(t_node **stack_a, t_node **stack_b, t_node *lower);
 
 /* algorithm.c */
-t_node		*order(t_node **stack_a, t_node *b);
+t_node		*order(t_node **stack_a, t_node **stack_b);
 
-
+void	free_node(t_node *stack)
+;
 
 void 		print_stack(t_node *stack);
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 08:31:24 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/21 13:25:51 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/23 17:56:55 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void	ft_push_b(t_node **dst, t_node **node)
 	a = *node;
 	ft_push(dst, a->value, a->idx);
 	*node = a->next;
+	free(a);
 	ft_printf("pa\n");
 }
 

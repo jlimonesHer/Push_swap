@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/22 16:46:38 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/23 17:44:25 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ void	free_node(t_node *stack)
 
 int	main(int argc, char **argv)
 {
-	//atexit(leaks);
+	atexit(leaks);
 	//init_stacks(argc, argv);
 	t_node	*stack_a = NULL;
 	t_node	*stack_b;
@@ -123,17 +123,16 @@ int	main(int argc, char **argv)
 	stack_a = init_node_and_check(argc, argv);
 	stack_b = NULL;
 	int count = count_nodes(stack_a);
-	 	//print_stack(stack_a);
 	if (count < 4)
 		sort_3(&stack_a);
 	if (count > 3)
 	{	
 		leave_only3(&stack_a, &stack_b, count);
 		sort_3(&stack_a);
-		stack_a = order(&stack_a, stack_b);
+		stack_a = order(&stack_a, &stack_b);
  	}
-	free_node(stack_a);
 	free_node(stack_b);
+	free_node(stack_a);
 	return (0);
 }
 
