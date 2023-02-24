@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   save_num.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 18:22:31 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/13 11:36:11 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/24 19:35:42 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,13 @@
  * @param argc numero de argumentos
  * @return int el numero de argumentos que se han pasado.
  */
-int	ft_count_num(char *params)
+int	ft_count_num(char **params)
 {
-	int		i;
 	int		count;
 
-	i = 0;
 	count = 0;
-	while (params[i])
-	{
-		if (!is_num_or_signed(params[i]))
-			count++;
-		i++;
-	}
+	while (params[count])
+		count++;
 	return (count);
 }
 
@@ -44,14 +38,16 @@ int	ft_count_num(char *params)
 t_node	*save_matrix_node_a(int argc, char **params)
 {
 	t_node		*node_a;
+	int			i;
 
+	i = 0;
 	node_a = NULL;
-	while (argc >= 0)
+	while (i < argc - 1)
 	{
-		control_atoi(params[argc]);
-		ft_push(&node_a, ft_atoi(params[argc]), 0);
-		free(params[argc]);
-		argc--;
+		control_atoi(params[i]);
+		ft_push(&node_a, ft_atoi(params[i]), 0);
+		free(params[i]);
+		i++;
 	}
 	return (node_a);
 }

@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 08:31:24 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/23 17:56:55 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:52:02 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_push(t_node **node, int value, int idx)
 {
 	t_node	*new_node;
 
-	new_node = malloc(sizeof(t_node));
+	new_node = ft_calloc(1, sizeof(t_node));
 	if (!node)
 		std_error("Algo salio mal al reservar memoria");
 	new_node->value = value;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_params.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:05 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/12 08:40:42 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/24 19:13:19 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,9 @@ int	is_repeat_nbr(t_node *node)
  */
 void	control_atoi(char *n)
 {
-	if (ft_atoi(n) > INT_MAX || ft_atoi(n) < INT_MIN)
+	int	num;
+
+	num = ft_atoi(n);
+	if (num > INT_MAX || num < INT_MIN)
 		std_error("Solo se pueden tratar numeros enteros");
 }

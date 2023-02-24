@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 18:11:28 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/23 12:49:49 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/24 19:06:14 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void	cost_a(t_node **stack_a, t_node **stack_b)
 	b = *stack_b;
 	a = *stack_a;
 	len = count_nodes(a);
-	//printf("len = %i, len / 2 %i\n", len, len /2);
 	while (b)
 	{
 		if (b->target > len / 2)
@@ -110,7 +109,6 @@ t_node	*lower_cost(t_node **stack_b)
 	retu = b;
 	while (b)
 	{
-		//printf("b = %i,  retu = %i\n", b->total_cost, retu->total_cost);
 		if (b->total_cost < retu->total_cost)
 			retu = b;
 		else

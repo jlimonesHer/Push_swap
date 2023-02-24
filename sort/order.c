@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 18:46:20 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/23 17:34:06 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/24 19:09:19 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
  */
 void	a_b_pos(t_node **stack_a, t_node **stack_b, t_node *lower)
 {
-	//printf("entra en a_b_pos\n");
 	while (lower->cost_b > 0 && lower->cost_a > 0)
 	{
 		rotate_ab(stack_a, stack_b);
@@ -51,7 +50,6 @@ void	a_b_pos(t_node **stack_a, t_node **stack_b, t_node *lower)
  */
 void	a_b_neg(t_node **stack_a, t_node **stack_b, t_node *lower)
 {
-	//printf("entra en a_b_neg\n");
 	while (lower->cost_b < 0 && lower->cost_a < 0)
 	{
 		reverse_rotate_ab(stack_a, stack_b);
@@ -82,7 +80,6 @@ void	a_b_neg(t_node **stack_a, t_node **stack_b, t_node *lower)
  */
 void	a_neg_b_pos(t_node **stack_a, t_node **stack_b, t_node *lower)
 {
-	//printf("entra en a_neg_b_pos\n");
 	if (lower->cost_b >= 0 || lower->cost_a < 0)
 	{
 		while (lower->cost_b > 0)
@@ -107,7 +104,6 @@ void	a_neg_b_pos(t_node **stack_a, t_node **stack_b, t_node *lower)
  */
 void	a_pos_b_neg(t_node **stack_a, t_node **stack_b, t_node *lower)
 {
-	//printf("entra en a_pos_b_neg\n");
 	if (lower->cost_b < 0 || lower->cost_a >= 0)
 	{
 		while (lower->cost_b < 0)
@@ -140,7 +136,7 @@ void	end_move(t_node **stack_a)
 	len = count_nodes(a);
 	while (a && a->idx != 1)
 		a = a->next;
-	i = a->pos;
+	i = a->pos + 1;
 	if (a->pos > len / 2)
 	{
 		while (a->pos < len)
@@ -151,10 +147,7 @@ void	end_move(t_node **stack_a)
 	}
 	else if (a->pos < len / 2 + 1)
 	{
-		while (i > 0)
-		{
+		while (--i > 0)
 			rotate_a(stack_a, 0);
-			i--;
-		}
 	}
 }

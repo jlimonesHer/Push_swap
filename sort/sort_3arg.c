@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_3arg.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/12 09:46:27 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/21 18:18:04 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/24 19:10:43 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	sort_3(t_node **stack_a)
 {
-	//printf("%i    %i   %i\n", (*stack_a)->idx,(*stack_a)->next->idx, (*stack_a)->next->next->idx);
 	if ((*stack_a)->idx < (*stack_a)->next->idx
 		&& (*stack_a)->next->idx < (*stack_a)->next->next->idx)
 		return ;
@@ -39,5 +38,4 @@ void	sort_3(t_node **stack_a)
 		rotate_a(stack_a, 0);
 		ft_move_swap_a(stack_a, 0);
 	}
-		//printf("ordenado %i    %i   %i\n", (*stack_a)->idx,(*stack_a)->next->idx, (*stack_a)->next->next->idx);
 }
