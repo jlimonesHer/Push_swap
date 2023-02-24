@@ -6,16 +6,11 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/24 19:35:54 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/24 19:47:22 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	leaks(void)
-{
-	system("leaks push_swap");
-}
 
 /**
  * @brief Inicializa las dos pilas:
@@ -40,6 +35,7 @@ t_node	*init_node_and_check(int argc, char **params)
 		argc = ft_count_num(matrix);
 		node_a = save_matrix_node_a(argc, matrix);
 		free(matrix);
+		free(matrix[argc - 1]);
 	}
 	if (count_nodes(node_a) < 2)
 		help_argv_validate("No hay numeros para ordenar");
@@ -96,4 +92,9 @@ void	print_stack(t_node *stack)
 		printf("total_cost = %i\n", b->total_cost);
 		b = b->next;
 	}
+}
+
+void	leaks(void)
+{
+	system("leaks push_swap");
 }
