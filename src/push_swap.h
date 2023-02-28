@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:07 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/24 19:17:11 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/28 09:37:30 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,10 @@ void		a_b_pos(t_node **stack_a, t_node **stack_b, t_node *lower);
 
 /* algorithm.c */
 t_node		*order(t_node **stack_a, t_node **stack_b);
+
+/* check_ordered_num.c */
+void		ordered_number(t_node **stack);
+void		minus_number(t_node **stack, int count);
 
 void		free_node(t_node *stack);
 

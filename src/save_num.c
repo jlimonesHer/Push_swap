@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   save_num.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 18:22:31 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/24 19:35:42 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/28 10:21:24 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,15 @@ t_node	*save_matrix_node_a(int argc, char **params)
 	t_node		*node_a;
 	int			i;
 
-	i = 0;
+	i = argc - 1;
 	node_a = NULL;
-	while (i < argc - 1)
+	while (i >= 0)
 	{
 		control_atoi(params[i]);
 		ft_push(&node_a, ft_atoi(params[i]), 0);
-		free(params[i]);
-		i++;
+		if (i > 0)
+			free(params[i - 1]);
+		i--;
 	}
 	return (node_a);
 }

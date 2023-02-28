@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/24 19:47:22 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/02/28 10:25:51 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ t_node	*init_node_and_check(int argc, char **params)
 		free(matrix);
 		free(matrix[argc - 1]);
 	}
-	if (count_nodes(node_a) < 2)
-		help_argv_validate("No hay numeros para ordenar");
+	if (count_nodes(node_a) < 3)
+		minus_number(&node_a, count_nodes(node_a));
 	is_repeat_nbr(node_a);
 	ft_get_pos(node_a);
 	ft_get_idx(&node_a);
@@ -54,12 +54,17 @@ void	free_node(t_node *stack)
 	}
 }
 
+void	leaks(void)
+{
+	system("leaks push_swap");
+}
+
 int	main(int argc, char **argv)
 {
 	t_node	*stack_a;
 	t_node	*stack_b;
 	int		count;
-	atexit(leaks);
+	//atexit(leaks);
 	stack_a = init_node_and_check(argc, argv);
 	stack_b = NULL;
 	count = count_nodes(stack_a);
@@ -92,9 +97,4 @@ void	print_stack(t_node *stack)
 		printf("total_cost = %i\n", b->total_cost);
 		b = b->next;
 	}
-}
-
-void	leaks(void)
-{
-	system("leaks push_swap");
 }
