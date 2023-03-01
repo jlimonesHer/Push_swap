@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_params.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:05 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/25 09:53:13 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:00:33 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,16 @@ int	check_param_num(int argc, char **params)
 	int	i;
 
 	argc--;
-	while (argc >= 1)
+	while (argc >= 0)
 	{
 		i = 0;
 		while (params[argc][i])
 		{
 			if (!is_num_or_signed(params[argc][i]))
-				help_argv_validate("Argumentos no validos.");
+				help_argv_validate("Error.");
 			if ((params[argc][i] == '-' || params[argc][i] == '+')
 				&& i > 0)
-				help_argv_validate("Argumentos no validos.");
+				help_argv_validate("Error.");
 			i++;
 		}
 		argc--;
@@ -93,7 +93,7 @@ int	is_repeat_nbr(t_node *node)
 		while (node->next != NULL)
 		{
 			if (tmp->value == node->next->value)
-				std_error("Hay algun numero repetido");
+				std_error("Error");
 			else
 				node = node->next;
 		}
@@ -114,5 +114,5 @@ void	control_atoi(char *n)
 
 	num = ft_atoi(n);
 	if (num > INT_MAX || num < INT_MIN)
-		std_error("Solo se pueden tratar numeros enteros");
+		std_error("Error");
 }

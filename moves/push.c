@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 08:31:24 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/24 16:52:02 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/01 13:38:59 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_push(t_node **node, int value, int idx)
 
 	new_node = ft_calloc(1, sizeof(t_node));
 	if (!node)
-		std_error("Algo salio mal al reservar memoria");
+		std_error("Error");
 	new_node->value = value;
 	new_node->idx = idx;
 	new_node->target = 0;
@@ -42,7 +42,7 @@ void	ft_push(t_node **node, int value, int idx)
  * @param dst destino del nodo
  * @param stack pila de destino
  */
-void	ft_push_b(t_node **dst, t_node **node)
+void	ft_push_b(t_node **dst, t_node **node, int mute)
 {
 	t_node	*a;
 
@@ -52,10 +52,11 @@ void	ft_push_b(t_node **dst, t_node **node)
 	ft_push(dst, a->value, a->idx);
 	*node = a->next;
 	free(a);
-	ft_printf("pa\n");
+	if (!mute)
+		ft_printf("pa\n");
 }
 
-void	ft_push_a(t_node **dst, t_node **node)
+void	ft_push_a(t_node **dst, t_node **node, int mute)
 {
 	t_node	*a;
 
@@ -65,5 +66,6 @@ void	ft_push_a(t_node **dst, t_node **node)
 	ft_push(dst, a->value, a->idx);
 	*node = a->next;
 	free(a);
-	ft_printf("pb\n");
+	if (!mute)
+		ft_printf("pb\n");
 }

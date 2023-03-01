@@ -6,7 +6,7 @@
 #    By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/09 09:17:57 by jlimones          #+#    #+#              #
-#    Updated: 2023/03/01 11:59:57 by jlimones         ###   ########.fr        #
+#    Updated: 2023/03/01 15:33:45 by jlimones         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,11 +42,6 @@ SRC_CHECKER = 	src/init_free_display.c \
 				moves/push.c \
 				moves/rotate.c \
 				moves/reverse_rotate.c \
-				sort/sort_3arg.c \
-				sort/cal_target.c \
-				sort/cost.c \
-				sort/order.c \
-				sort/algorithm.c \
 				src/checker.c
 
 AUTHOR = jlimones
@@ -97,7 +92,8 @@ $(CHECKER): $(SRC_CHECKER) $(OBJCHECKER)
 
 skiperror:
 	@$(CC) -o $(NAME) $(SRC)
-
+	@printf "%b" "$(ERROR_COLOR)" "Error\n"
+	
 clean: header
 	@make clean -C libft
 	@rm -f $(OBJ)

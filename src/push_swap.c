@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/01 11:28:24 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/01 15:10:49 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	main(int argc, char **argv)
 	t_node	*stack_a;
 	t_node	*stack_b;
 	int		count;
-	//atexit(leaks);
-	stack_a = init_node_and_check(argc, argv);
+
+	stack_a = init_node_and_check(argc, argv, 0);
 	stack_b = NULL;
 	count = count_nodes(stack_a);
 	if (count < 4)

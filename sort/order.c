@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 18:46:20 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/24 19:09:19 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/01 13:40:40 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	a_b_pos(t_node **stack_a, t_node **stack_b, t_node *lower)
 			lower->cost_b--;
 		}
 	}
-	ft_push_b(stack_a, stack_b);
+	ft_push_b(stack_a, stack_b, 0);
 }
 
 /**
@@ -69,7 +69,7 @@ void	a_b_neg(t_node **stack_a, t_node **stack_b, t_node *lower)
 			lower->cost_a++;
 		}
 	}
-	ft_push_b(stack_a, stack_b);
+	ft_push_b(stack_a, stack_b, 0);
 }
 
 /**
@@ -93,7 +93,7 @@ void	a_neg_b_pos(t_node **stack_a, t_node **stack_b, t_node *lower)
 			lower->cost_a++;
 		}
 	}
-	ft_push_b(stack_a, stack_b);
+	ft_push_b(stack_a, stack_b, 0);
 }
 
 /**
@@ -117,7 +117,7 @@ void	a_pos_b_neg(t_node **stack_a, t_node **stack_b, t_node *lower)
 			lower->cost_a--;
 		}
 	}
-	ft_push_b(stack_a, stack_b);
+	ft_push_b(stack_a, stack_b, 0);
 }
 
 /**

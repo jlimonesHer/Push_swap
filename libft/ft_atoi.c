@@ -6,11 +6,12 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 16:59:09 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/01 13:07:47 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/01 13:25:46 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "../src/push_swap.h"
 
 static const char	*ft_prep(const char *str, int *isneg)
 {
@@ -27,7 +28,7 @@ static const char	*ft_prep(const char *str, int *isneg)
 	return (str);
 }
 
-long long	ft_atoi(const char *str)
+int	ft_atoi(const char *str)
 {
 	int			isneg;
 	int			ret;
@@ -41,9 +42,8 @@ long long	ft_atoi(const char *str)
 	}
 	ret *= isneg;
 	if (isneg == -1 && ret > 0)
-		return (0);
+		std_error("Error");
 	if (isneg == 1 && ret < 0)
-		return (-1);
-	printf("entra\n");
+		std_error("Error");
 	return (ret);
 }

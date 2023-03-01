@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_data_struck.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 10:53:57 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/28 08:50:50 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/01 13:28:54 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ int	count_nodes(t_node *list)
 	i = 0;
 	while (list != NULL)
 	{
-		//printf("node = %i\n", list->value);
 		list = list->next;
 		i++;
 	}

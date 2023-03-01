@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:27:30 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/01 11:28:17 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:07:46 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  * @param params argumentos
  * @return void* retorna el puntero al primer nodo de la pila
  */
-t_node	*init_node_and_check(int argc, char **params)
+t_node	*init_node_and_check(int argc, char **params, int is_checker)
 {
 	t_node	*node_a;
 	char	**matrix;
@@ -37,7 +37,7 @@ t_node	*init_node_and_check(int argc, char **params)
 		free(matrix);
 		free(matrix[argc - 1]);
 	}
-	if (count_nodes(node_a) < 3)
+	if (count_nodes(node_a) < 3 && !is_checker)
 		minus_number(&node_a, count_nodes(node_a));
 	is_repeat_nbr(node_a);
 	ft_get_pos(node_a);

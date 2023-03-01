@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 19:03:19 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/01 12:44:31 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:06:15 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ int	sort_number(t_node **lst)
 {
 	while ((*lst)->next)
 	{
-		// printf("------------------------------------\n");
-		// print_stack((*lst));
 		if ((*lst)->next->value < (*lst)->value)
 			return (0);
 		(*lst) = (*lst)->next;
@@ -28,9 +26,9 @@ int	sort_number(t_node **lst)
 int	std_in_term(char *param, t_node **stack_a, t_node **stack_b, int len)
 {
 	if (ft_strncmp(param, "pa\n", len) == 0)
-		ft_push_a(stack_a, stack_b);
+		ft_push_a(stack_a, stack_b, 1);
 	else if (ft_strncmp(param, "pb\n", len) == 0)
-		ft_push_b(stack_b, stack_a);
+		ft_push_b(stack_b, stack_a, 1);
 	else if (ft_strncmp(param, "sa\n", len) == 0)
 		ft_move_swap_a(stack_a, 1);
 	else if (ft_strncmp(param, "sb\n", len) == 0)
@@ -85,11 +83,11 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (argc < 2)
 		return (0);
-	stack_a = init_node_and_check(argc, argv);
+	stack_a = init_node_and_check(argc, argv, 1);
 	stack_b = NULL;
 	status_code = instruc(&stack_a, &stack_b);
 	if (status_code == 1)
-		ft_putstr_fd("Error\n", STDERR_FILENO);
+		std_error("Error");
 	else
 	{
 		if (sort_number(&stack_a) && stack_b == NULL)
