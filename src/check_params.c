@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:05 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/01 17:00:33 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:44:12 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	check_param_num(int argc, char **params)
 	int	i;
 
 	argc--;
-	while (argc >= 0)
+	while (argc >= 1)
 	{
 		i = 0;
 		while (params[argc][i])

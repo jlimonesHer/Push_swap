@@ -6,22 +6,11 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 19:03:19 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/01 17:06:15 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:17:49 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	sort_number(t_node **lst)
-{
-	while ((*lst)->next)
-	{
-		if ((*lst)->next->value < (*lst)->value)
-			return (0);
-		(*lst) = (*lst)->next;
-	}
-	return (1);
-}
 
 int	std_in_term(char *param, t_node **stack_a, t_node **stack_b, int len)
 {

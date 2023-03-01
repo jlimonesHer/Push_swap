@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/01 15:10:49 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:59:25 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ int	main(int argc, char **argv)
 	if (count < 4)
 		sort_3(&stack_a);
 	if (count > 3)
-	{	
+	{
+		if (sort_number2(&stack_a))
+			return (0);
 		leave_only3(&stack_a, &stack_b, count);
 		sort_3(&stack_a);
 		stack_a = order(&stack_a, &stack_b);

@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:07 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/01 13:56:27 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/01 17:22:11 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,8 @@ t_node		*order(t_node **stack_a, t_node **stack_b);
 void		ordered_number(t_node **stack);
 void		minus_number(t_node **stack, int count);
 
+int			sort_number(t_node **lst);
+int			sort_number2(t_node **lst);
 void		free_node(t_node *stack);
 
 void		print_stack(t_node *stack);
