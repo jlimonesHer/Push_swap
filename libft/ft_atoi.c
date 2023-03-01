@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 16:59:09 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/24 18:40:15 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/01 13:07:47 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,6 @@ long long	ft_atoi(const char *str)
 		return (0);
 	if (isneg == 1 && ret < 0)
 		return (-1);
+	printf("entra\n");
 	return (ret);
 }

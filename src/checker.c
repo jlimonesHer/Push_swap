@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 19:03:19 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/01 11:57:25 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/01 12:44:31 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 int	sort_number(t_node **lst)
 {
-	while (*lst)
+	while ((*lst)->next)
 	{
+		// printf("------------------------------------\n");
+		// print_stack((*lst));
 		if ((*lst)->next->value < (*lst)->value)
 			return (0);
 		(*lst) = (*lst)->next;
 	}
-	return (0);
+	return (1);
 }
 
 int	std_in_term(char *param, t_node **stack_a, t_node **stack_b, int len)
@@ -32,7 +34,7 @@ int	std_in_term(char *param, t_node **stack_a, t_node **stack_b, int len)
 	else if (ft_strncmp(param, "sa\n", len) == 0)
 		ft_move_swap_a(stack_a, 1);
 	else if (ft_strncmp(param, "sb\n", len) == 0)
-		ft_move_swap_b(stack_a, 1);
+		ft_move_swap_b(stack_b, 1);
 	else if (ft_strncmp(param, "ss\n", len) == 0)
 		ft_move_swap_ab(stack_a, stack_b);
 	else if (ft_strncmp(param, "ra\n", len) == 0)
