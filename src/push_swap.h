@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:07 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/28 09:37:30 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:30:49 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ typedef struct s_node
 	struct s_node	*next;
 }	t_node;
 
-/* push_swap.c */
-void		init_stacks(int argc, char **params);
+/* init_free_display.c */
 t_node		*init_node_and_check(int argc, char **params);
+void		free_node(t_node *stack);
+void		leaks(void);
+void		print_stack(t_node *stack);
 
 /* save_num.c */
 int			ft_count_num(char **params);

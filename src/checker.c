@@ -3,14 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   checker.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 19:03:19 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/28 19:43:30 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:57:25 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "/Users/jlimones/Desktop/push_swap_git/src/push_swap.h"
+#include "push_swap.h"
+
+int	sort_number(t_node **lst)
+{
+	while (*lst)
+	{
+		if ((*lst)->next->value < (*lst)->value)
+			return (0);
+		(*lst) = (*lst)->next;
+	}
+	return (0);
+}
 
 int	std_in_term(char *param, t_node **stack_a, t_node **stack_b, int len)
 {
@@ -41,14 +52,14 @@ int	std_in_term(char *param, t_node **stack_a, t_node **stack_b, int len)
 	return (0);
 }
 
-int	exec_instructions(t_node **stack_a, t_node **stack_b)
+int	instruc(t_node **stack_a, t_node **stack_b)
 {
 	char	*param;
 	int		status;
 
 	if (stack_a == NULL)
 		return (0);
-	param = ft_gnl(STDIN_FILENO);
+	param = get_next_line(STDIN_FILENO);
 	status = 0;
 	while (param != NULL)
 	{
@@ -58,7 +69,7 @@ int	exec_instructions(t_node **stack_a, t_node **stack_b)
 		else
 			std_in_term(param, stack_a, stack_b, ft_strlen(param));
 		free(param);
-		param = ft_gnl(STDIN_FILENO);
+		param = get_next_line(STDIN_FILENO);
 	}
 	return (status);
 }
@@ -72,21 +83,17 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	if (argc < 2)
 		return (0);
-	//parse_params(argc, argv, &push_swap);  checkear los numeros
-	//check_duplicates(push_swap.int_array, push_swap.arr_len);
-	//init_stacks(&push_swap);
-	status_code = exec_instructions(stack_a, stack_b);
+	stack_a = init_node_and_check(argc, argv);
+	stack_b = NULL;
+	status_code = instruc(&stack_a, &stack_b);
 	if (status_code == 1)
 		ft_putstr_fd("Error\n", STDERR_FILENO);
 	else
 	{
-		if (is_sorted(push_swap.a) && push_swap.b == NULL)
+		if (sort_number(&stack_a) && stack_b == NULL)
 			ft_printf("OK\n");
 		else
 			ft_printf("KO\n");
 	}
-	free(push_swap.int_array);
-	ft_lstclear(&push_swap.a, ft_do_nothing);
-	ft_lstclear(&push_swap.b, ft_do_nothing);
 	return (0);
 }
