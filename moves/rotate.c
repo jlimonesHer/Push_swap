@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 09:20:15 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/22 11:54:37 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/02 13:39:45 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	rotate_a(t_node **stack_a, int mute)
 	t_node	*first;
 	t_node	*end;
 
-	if ((*stack_a) == NULL)
+	if ((*stack_a) == NULL || count_nodes(*stack_a) < 2)
 		return ;
 	end = (*stack_a);
 	first = (*stack_a)->next;
@@ -56,9 +56,10 @@ void	rotate_b(t_node **stack_b, int mute)
  * @param stack_a puntero a puntero de la pila a mover
  * @param stack_b puntero a puntero de la pila a mover
  */
-void	rotate_ab(t_node **stack_a, t_node **stack_b)
+void	rotate_ab(t_node **stack_a, t_node **stack_b, int mute)
 {
 	rotate_a(stack_a, 1);
 	rotate_b(stack_b, 1);
-	ft_printf("rr\n");
+	if (!mute)
+		ft_printf("rr\n");
 }

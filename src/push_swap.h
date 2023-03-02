@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:07 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/01 17:22:11 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/02 13:40:14 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ t_node		*save_param_node_a(int argc, char **params);
 
 /* check_params.c */
 int			is_num_or_signed(char param);
-int			check_param_num(int argc, char **params);
+int			check_param_num(int argc, char **params, int one_param);
 char		**split_for_param(char *params);
 int			is_repeat_nbr(t_node *node_a);
 void		control_atoi(char *n);
@@ -77,12 +77,12 @@ void		ft_push_b(t_node **dst, t_node **node, int mute);
 /* rotate.c */
 void		rotate_a(t_node **stack_a, int mute);
 void		rotate_b(t_node **stack_b, int mute);
-void		rotate_ab(t_node **stack_a, t_node **stack_b);
+void		rotate_ab(t_node **stack_a, t_node **stack_b, int mute);
 
 /* reverse_rotate.c */
 void		reverse_rotate_a(t_node **stack_a, int mute);
 void		reverse_rotate_b(t_node **stack_b, int mute);
-void		reverse_rotate_ab(t_node **stack_a, t_node **stack_b);
+void		reverse_rotate_ab(t_node **stack_a, t_node **stack_b, int mute);
 
 /* sort_3.c */
 void		sort_3(t_node **stack_a);

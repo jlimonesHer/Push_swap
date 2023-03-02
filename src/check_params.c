@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:05 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/01 17:44:12 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/02 13:49:24 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,24 @@ int	is_num_or_signed(char param)
  * 
  * @param argc numero de argumentos
  * @param param argumentos pasados al programa
+ * @param one_param 
  * @return int 1 si los parametros son correctos o 0 si no lo son
  */
-int	check_param_num(int argc, char **params)
+int	check_param_num(int argc, char **params, int one_param)
 {
 	int	i;
 
 	argc--;
-	while (argc >= 1)
+	while (argc >= one_param)
 	{
 		i = 0;
 		while (params[argc][i])
 		{
 			if (!is_num_or_signed(params[argc][i]))
-				help_argv_validate("Error.");
+				std_error("Error");
 			if ((params[argc][i] == '-' || params[argc][i] == '+')
-				&& i > 0)
-				help_argv_validate("Error.");
+				&& (i > 0 || !ft_isdigit(params[argc][i + 1])))
+				std_error("Error");
 			i++;
 		}
 		argc--;
@@ -72,7 +73,7 @@ char	**split_for_param(char *params)
 	split_param = ft_split(params, ' ');
 	while (split_param[len] != NULL)
 		len++;
-	if (!check_param_num(len, split_param))
+	if (!check_param_num(len, split_param, 0))
 		return (0);
 	return (split_param);
 }

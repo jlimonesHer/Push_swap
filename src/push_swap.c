@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:21:08 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/01 17:59:25 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/02 12:58:15 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int	main(int argc, char **argv)
 	t_node	*stack_b;
 	int		count;
 
+	if (argc == 1)
+		return (0);
 	stack_a = init_node_and_check(argc, argv, 0);
 	stack_b = NULL;
 	count = count_nodes(stack_a);

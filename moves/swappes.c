@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   swappes.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jlimones <jlimones@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/10 18:58:14 by jlimones          #+#    #+#             */
-/*   Updated: 2023/02/13 11:34:57 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/02 10:28:36 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_move_swap_a(t_node **stack_a, int mute)
 {
 	t_node	*tmp;
 
-	if ((*stack_a) == NULL)
+	if ((*stack_a) == NULL || count_nodes(*stack_a) < 2)
 		return ;
 	tmp = (*stack_a)->next;
 	(*stack_a)->next = (*stack_a)->next->next;

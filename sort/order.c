@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/15 18:46:20 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/01 13:40:40 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/02 13:41:33 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	a_b_pos(t_node **stack_a, t_node **stack_b, t_node *lower)
 {
 	while (lower->cost_b > 0 && lower->cost_a > 0)
 	{
-		rotate_ab(stack_a, stack_b);
+		rotate_ab(stack_a, stack_b, 0);
 		lower->cost_b--;
 		lower->cost_a--;
 	}
@@ -52,7 +52,7 @@ void	a_b_neg(t_node **stack_a, t_node **stack_b, t_node *lower)
 {
 	while (lower->cost_b < 0 && lower->cost_a < 0)
 	{
-		reverse_rotate_ab(stack_a, stack_b);
+		reverse_rotate_ab(stack_a, stack_b, 0);
 		lower->cost_b++;
 		lower->cost_a++;
 	}

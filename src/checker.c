@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 19:03:19 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/01 17:17:49 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/02 13:42:14 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ int	std_in_term(char *param, t_node **stack_a, t_node **stack_b, int len)
 	else if (ft_strncmp(param, "rb\n", len) == 0)
 		rotate_b(stack_b, 1);
 	else if (ft_strncmp(param, "rr\n", len) == 0)
-		rotate_ab(stack_a, stack_b);
+		rotate_ab(stack_a, stack_b, 1);
 	else if (ft_strncmp(param, "rra\n", len) == 0)
 		reverse_rotate_a(stack_a, 1);
 	else if (ft_strncmp(param, "rrb\n", len) == 0)
 		reverse_rotate_b(stack_b, 1);
 	else if (ft_strncmp(param, "rrr\n", len) == 0)
-		reverse_rotate_ab(stack_a, stack_b);
+		reverse_rotate_ab(stack_a, stack_b, 1);
 	else
 		return (1);
 	return (0);
@@ -70,6 +70,8 @@ int	main(int argc, char **argv)
 	int		status_code;
 
 	stack_b = NULL;
+	if (argc == 1)
+		return (0);
 	if (argc < 2)
 		return (0);
 	stack_a = init_node_and_check(argc, argv, 1);

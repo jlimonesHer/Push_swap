@@ -6,12 +6,11 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 08:38:48 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/01 17:39:29 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/02 13:51:42 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int	sort_number(t_node **lst)
 {
@@ -49,11 +48,11 @@ int	sort_number2(t_node **lst)
 void	ordered_number(t_node **stack)
 {
 	if ((*stack)->value < (*stack)->next->value)
-		exit (-1);
+		exit (0);
 	else
 	{
 		ft_move_swap_a(stack, 0);
-		exit (-1);
+		exit (0);
 	}
 }
 
@@ -61,7 +60,7 @@ void	minus_number(t_node **stack, int count)
 {
 	is_repeat_nbr(*stack);
 	if (count < 2)
-		exit (-1);
+		exit (0);
 	else if (count < 3)
 		ordered_number(stack);
 }

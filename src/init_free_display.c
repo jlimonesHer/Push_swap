@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:27:30 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/01 17:07:46 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/02 12:24:52 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_node	*init_node_and_check(int argc, char **params, int is_checker)
 
 	if (argc > 2)
 	{
-		check_param_num(argc, params);
+		check_param_num(argc, params, 1);
 		node_a = save_param_node_a(argc, params);
 	}
 	else
