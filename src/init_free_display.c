@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 11:27:30 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/02 12:24:52 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/02 15:22:56 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	free_node(t_node *stack)
 
 void	leaks(void)
 {
-	system("leaks push_swap");
+	system("leaks checker");
 }
 
 void	print_stack(t_node *stack)

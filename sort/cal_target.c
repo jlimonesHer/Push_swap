@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 09:41:31 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/01 17:32:12 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/02 15:35:34 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	leave_only3(t_node **stack_a, t_node **stack_b, int count)
 	{
 		if ((*stack_a)->idx <= total)
 		{
-			ft_push_a(stack_b, stack_a, 0);
+			push_b(stack_b, stack_a, 0);
 			tmp = (*stack_a);
 			count--;
 		}
@@ -68,7 +68,7 @@ void	leave_only3(t_node **stack_a, t_node **stack_b, int count)
 	tmp = (*stack_a);
 	count = count_nodes(*stack_a) + 1;
 	while (--count > 3)
-		ft_push_a(stack_b, stack_a, 0);
+		push_b(stack_b, stack_a, 0);
 }
 
 /**

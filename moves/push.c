@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 08:31:24 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/01 13:38:59 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/02 15:35:34 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_push(t_node **node, int value, int idx)
  * @param dst destino del nodo
  * @param stack pila de destino
  */
-void	ft_push_b(t_node **dst, t_node **node, int mute)
+void	push_a(t_node **dst, t_node **node, int mute)
 {
 	t_node	*a;
 
@@ -56,7 +56,7 @@ void	ft_push_b(t_node **dst, t_node **node, int mute)
 		ft_printf("pa\n");
 }
 
-void	ft_push_a(t_node **dst, t_node **node, int mute)
+void	push_b(t_node **dst, t_node **node, int mute)
 {
 	t_node	*a;
 

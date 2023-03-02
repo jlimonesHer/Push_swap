@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 13:23:07 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/02 13:40:14 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/02 15:35:34 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ void		ft_move_swap_ab(t_node **stack_a, t_node **stack_b);
 
 /* push.c */
 void		ft_push(t_node **node, int value, int idx);
-void		ft_push_a(t_node **dst, t_node **node, int mute);
-void		ft_push_b(t_node **dst, t_node **node, int mute);
+void		push_b(t_node **dst, t_node **node, int mute);
+void		push_a(t_node **dst, t_node **node, int mute);
 
 /* rotate.c */
 void		rotate_a(t_node **stack_a, int mute);

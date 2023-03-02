@@ -6,7 +6,7 @@
 /*   By: jlimones <jlimones@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 08:38:48 by jlimones          #+#    #+#             */
-/*   Updated: 2023/03/02 13:51:42 by jlimones         ###   ########.fr       */
+/*   Updated: 2023/03/02 15:33:17 by jlimones         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 int	sort_number(t_node **lst)
 {
-	while ((*lst)->next)
+	t_node	*aux;
+
+	aux = *lst;
+	while (aux->next)
 	{
-		if ((*lst)->next->value < (*lst)->value)
+		if (aux->next->value < aux->value)
 			return (0);
-		(*lst) = (*lst)->next;
+		aux = aux->next;
 	}
 	return (1);
 }
